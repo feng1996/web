@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>MyGraduate</display-name>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>com.feng.servlet.InitServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <context-param>
+    <param-name>sql_dialect</param-name>
+    <param-value>mysql</param-value>
+  </context-param>
+  <context-param>
+    <param-name>data_source</param-name>
+    <param-value>myweb</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.feng.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/DoLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InsertPubServlet</servlet-name>
+    <servlet-class>com.feng.servlet.InsertPubServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertPubServlet</servlet-name>
+    <url-pattern>/InsertPub</url-pattern>
+  </servlet-mapping>
+  <resource-ref>
+    <res-ref-name>jdbc/myweb</res-ref-name>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+</web-app>
