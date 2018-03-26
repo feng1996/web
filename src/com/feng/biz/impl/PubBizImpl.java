@@ -28,6 +28,6 @@ public class PubBizImpl implements PubBiz {
 	
 	@Override
 	public PubManage getPubByTitle(String pubTitle) {
-		return PubDao.getPubByTitle(pubTitle);
+		return pubDao.getPubByTitle(pubTitle);
 	}
 }
