@@ -1,5 +1,7 @@
 package com.feng.dao;
 
+import java.util.Vector;
+
 import com.feng.entity.PubManage;
 
 public interface PubDao {
@@ -12,5 +14,6 @@ public interface PubDao {
 	public int delPubByTitle(String pubTitle);
 	
 	//显示
-	public PubManage getPubByTitle(String pubTitle);
+	public PubManage findPubByID(String pid);
+	public Vector<PubManage> getPub();
 }

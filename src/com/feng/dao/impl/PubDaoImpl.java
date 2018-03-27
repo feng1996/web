@@ -29,27 +29,57 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 		return this.executeUpdate(sql, params);
 	}
 
-	
 	@Override
-	public PubManage getPubByTitle(String pubTitle) {
-		String sql = "select pubTitle,pubType,pubUser,pubTime,pubContent from pub where pubTitle = ?";
-		Object[] params = {pubTitle};
-		RSProcessor rsp = new RSProcessor() {
-			@Override
+	public PubManage findPubByID(String pid) {
+		String sql = "select * from pub where pid = ?";
+		Object[] params = { pid };
+
+		RSProcessor getUserByNameProcessor = new RSProcessor() {
+
 			public Object process(ResultSet rs) throws SQLException {
 				PubManage pub = null;
-				if(rs!=null&rs.next()) {
+
+				if (rs != null) {
+					if (rs.next()) {
+						String pubTitle = rs.getString("pubTitle");
+						String pubType = rs.getString("pubType");
+						String pubUser = rs.getString("pubUser");
+						String pubTime = rs.getString("pubTime");
+						String pubContent = rs.getString("pubContent");
+						pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent);
+					}
+				}
+
+				return pub;
+
+			}
+		};
+
+		return (PubManage) this.executeQuery(getUserByNameProcessor, sql, params);
+	}
+	
+	@Override
+	public Vector<PubManage> getPub() {
+		String sql = "select * from pub";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<PubManage> pubs = new Vector<PubManage>();
+				while (rs.next()) {					
 					String pubTitle = rs.getString("pubTitle");
 					String pubType = rs.getString("pubType");
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent);
+					PubManage pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent);
+					pubs.add(pub);
 				}
-				return pub;
+				return pubs;
 			}
 		};
-		return (PubManage)this.executeQuery(rsp,sql,params);
+
+		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
 	}
+	
 	
 }

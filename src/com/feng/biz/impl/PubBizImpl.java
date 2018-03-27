@@ -10,24 +10,25 @@ import com.feng.entity.PubManage;
 
 public class PubBizImpl implements PubBiz {
 
-	
+	PubDaoImpl pubDaoImpl = new PubDaoImpl();
 
-	private PubDao pubDao = new PubDaoImpl();
+	//private PubDao pubDao = new PubDaoImpl();
 	
 	@Override
 	public int insert(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent) {
 		PubManage pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent);
-		return pubDao.insert(pub);
+		return pubDaoImpl.insert(pub);
 	}
 	
 	@Override
 	public boolean delPubByTitle(String pubTitle) {
-		pubDao.delPubByTitle(pubTitle);
+		pubDaoImpl.delPubByTitle(pubTitle);
 		return false;
 	}
 	
 	@Override
-	public PubManage getPubByTitle(String pubTitle) {
-		return pubDao.getPubByTitle(pubTitle);
+	public PubManage findPubByID(String pid) {
+		PubManage pub = pubDaoImpl.findPubByID(pid);
+		return pub;
 	}
 }

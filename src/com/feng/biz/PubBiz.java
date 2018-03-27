@@ -10,6 +10,5 @@ public interface PubBiz {
 	
 	public boolean delPubByTitle(String pubTitle);
 	
-	public PubManage getPubByTitle(String pubTitle);
-	
+	public PubManage findPubByID(String pid);
 }

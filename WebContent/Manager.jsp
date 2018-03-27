@@ -81,7 +81,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="tr" items="${pub}">	
+										<c:forEach var="tr" items="${pubs}">	
 										<tr>
 											<td><button type="button" class="btn btn-warning">删除</button></td>											
 											<td>${tr.pubTitle }</td>
