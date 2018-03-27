@@ -45,6 +45,8 @@
 				<div class="col-md-10 column">
 				<div class="tab-content">
 					<div class="tab-pane active" id="panel-1">
+					
+					<form action="DeletePub" method="POST">
 						<div class="function">
 							<label for="">起始时间：</label>
 							<input class='mydatepicker2' type='text' />
@@ -56,6 +58,8 @@
 						</div>
 						<div class="func-table">
 							<div class="input-group">
+								<button class="btn btn-success" data-toggle="modal" data-target="#publishModal">新加</button>
+								<button type="submit" class="btn btn-warning">删除所选</button>
 								<span class="input-group-btn">
                    	    			<button class="btn btn-default" type="button">
                         				清除
@@ -68,11 +72,11 @@
 								</button>
 								</span>
 							</div>
-							<div class="edit-content">
+							<div class="edit-content" id="table">
 								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th><button class="btn btn-success" data-toggle="modal" data-target="#publishModal">新加</button></th>
+											<th><input type="checkbox" id="all"/>全选</th>
 											<th>标题</th>
 											<th>所属类别</th>
 											<th>发布人</th>
@@ -83,7 +87,7 @@
 									<tbody>
 										<c:forEach var="tr" items="${pubs}">	
 										<tr>
-											<td><button type="button" class="btn btn-warning">删除</button></td>											
+											<td><input type="checkbox" name="pid" value="${tr.pid}"/></td>											
 											<td>${tr.pubTitle }</td>
 											<td>${tr.pubType }</td>
 											<td>${tr.pubUser }</td>
@@ -153,6 +157,7 @@
 								
 							</div>
 						</div>
+						</form>
 					</div>
 					<div class="tab-pane" id="panel-2">
 						<div class="function">
@@ -378,6 +383,19 @@
 				$addButton: $('#add')
 			});
 		
+			
+			$("#all").change(function(){
+				var checked = $(this).get(0).checked;
+				if(checked){
+					$("#table tbody").find("[type=checkbox]").not(":checked").each(function(){
+						$(this).get(0).checked = true;
+					})
+				}else{
+					$("#table tbody").find("[type=checkbox]:checked").each(function(){
+						$(this).get(0).checked = false;
+					})
+				}
+			});
 		</script>
 	</body>
 

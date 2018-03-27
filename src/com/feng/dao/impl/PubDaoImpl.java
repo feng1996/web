@@ -82,4 +82,11 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	}
 	
 	
+	@Override
+	public int delPubByPid(int pid) {
+		String sql = "delete from pub where pid = ?";
+		Object[] params = {pid};
+		return this.executeUpdate(sql,params);
+	}
+	
 }

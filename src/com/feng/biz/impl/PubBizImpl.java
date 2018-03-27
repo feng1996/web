@@ -1,6 +1,9 @@
 package com.feng.biz.impl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Vector;
 
 import com.feng.biz.PubBiz;
@@ -30,5 +33,18 @@ public class PubBizImpl implements PubBiz {
 	public PubManage findPubByID(String pid) {
 		PubManage pub = pubDaoImpl.findPubByID(pid);
 		return pub;
+	}
+	
+	@Override
+	public List<Integer> delPubByPid(List<Integer> pids) {
+		Iterator<Integer> it = pids.iterator();
+		List<Integer> errors = new ArrayList<Integer>();
+		while(it.hasNext()) {
+			int id = it.next();
+			if(pubDaoImpl.delPubByPid(id)==0) {
+				errors.add(id);
+			}
+		}
+		return errors;
 	}
 }

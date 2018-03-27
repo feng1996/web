@@ -41,6 +41,14 @@
     <servlet-name>PubServlet</servlet-name>
     <url-pattern>/DoPub</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>DeletePubServlet</servlet-name>
+    <servlet-class>com.feng.servlet.DeletePubServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePubServlet</servlet-name>
+    <url-pattern>/DeletePub</url-pattern>
+  </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>
     <res-auth>Container</res-auth>

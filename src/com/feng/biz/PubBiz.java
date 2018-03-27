@@ -1,6 +1,6 @@
 package com.feng.biz;
 
-import java.io.File;
+import java.util.List;
 
 import com.feng.entity.PubManage;
 
@@ -11,4 +11,6 @@ public interface PubBiz {
 	public boolean delPubByTitle(String pubTitle);
 	
 	public PubManage findPubByID(String pid);
+	
+	public List<Integer> delPubByPid(List<Integer> pids);
 }

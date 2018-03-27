@@ -1,12 +1,23 @@
 package com.feng.entity;
 
 public class PubManage {
+	private int pid;
 	private String pubTitle = "";
 	private String pubType = "";
 	private String pubUser = "";
 	private String pubTime = "";
 	private String pubContent = "";
-	// 构造文件
+	
+	public PubManage(int pid, String pubTitle, String pubType, String pubUser, String pubTime, String pubContent) {
+		super();
+		this.pid = pid;
+		this.pubTitle = pubTitle;
+		this.pubType = pubType;
+		this.pubUser = pubUser;
+		this.pubTime = pubTime;
+		this.pubContent = pubContent;
+	}
+	
 	public PubManage(String pubTitle, String pubType, String pubUser, String pubTime, String pubContent) {
 		super();
 		this.pubTitle = pubTitle;
@@ -14,6 +25,14 @@ public class PubManage {
 		this.pubUser = pubUser;
 		this.pubTime = pubTime;
 		this.pubContent = pubContent;
+	}
+	
+	public int getPid() {
+		return pid;
+	}
+	
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 
 	public String getPubTitle() {

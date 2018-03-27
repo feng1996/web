@@ -16,4 +16,5 @@ public interface PubDao {
 	//显示
 	public PubManage findPubByID(String pid);
 	public Vector<PubManage> getPub();
+	public int delPubByPid(int pid);
 }
