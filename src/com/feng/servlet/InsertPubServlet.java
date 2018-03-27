@@ -33,7 +33,7 @@ public class InsertPubServlet extends HttpServlet {
 		String pubContent = request.getParameter("pubContent");
 		PubBiz pubBiz = new PubBizImpl();
 		pubBiz.insert(pubTitle, pubType, pubUser, pubTime, pubContent);
-		response.sendRedirect("Manager.jsp");
+		response.sendRedirect("DoPub");
 	}
 
 }
