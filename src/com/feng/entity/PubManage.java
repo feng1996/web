@@ -17,7 +17,7 @@ public class PubManage {
 		this.pubTime = pubTime;
 		this.pubContent = pubContent;
 	}
-	
+
 	public PubManage(String pubTitle, String pubType, String pubUser, String pubTime, String pubContent) {
 		super();
 		this.pubTitle = pubTitle;
@@ -26,14 +26,15 @@ public class PubManage {
 		this.pubTime = pubTime;
 		this.pubContent = pubContent;
 	}
-	
+
 	public int getPid() {
 		return pid;
 	}
-	
+
 	public void setPid(int pid) {
 		this.pid = pid;
 	}
+	
 
 	public String getPubTitle() {
 		return pubTitle;

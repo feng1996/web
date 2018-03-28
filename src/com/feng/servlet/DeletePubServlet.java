@@ -22,6 +22,8 @@ public class DeletePubServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String db = request.getParameter("delbtn");
+		if(db!=null) {
 		String[] values = request.getParameterValues("pid");
 		List<Integer> pids = new ArrayList<Integer>();
 		for(int i=0;i<values.length;i++) {
@@ -30,6 +32,8 @@ public class DeletePubServlet extends HttpServlet {
 		PubBiz pubBiz = new PubBizImpl();
 		pubBiz.delPubByPid(pids);
 		response.sendRedirect("DoPub");
+	
+	}
 	}
 
 }

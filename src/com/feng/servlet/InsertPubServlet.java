@@ -34,6 +34,7 @@ public class InsertPubServlet extends HttpServlet {
 		PubBiz pubBiz = new PubBizImpl();
 		pubBiz.insert(pubTitle, pubType, pubUser, pubTime, pubContent);
 		response.sendRedirect("DoPub");
+		
 	}
 
 }
