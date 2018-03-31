@@ -1,0 +1,13 @@
+.NewsList li{
+	margin-top: 14px;
+}
+.NewsList li a{
+	color: #333333;
+}
+.NewsList li a:hover{
+	color: #0000cc;
+}
+.data-span{
+	float: right;
+	color: #666666
+}

@@ -1,0 +1,25 @@
+ul:not(.nav-pills) li{
+	margin-top: 10px;
+	border-bottom: dashed 1px #CCCCCC;
+}
+h3 {
+	color: #FFFFFF;
+}
+.stitle {
+	background: rgb(120, 144, 156);
+	width: 110px;
+	height: 30px;
+	text-align: center;
+	color: #FFFFFF;
+	line-height: 30px;
+	margin-left: 40px;
+	/*margin-bottom: 10px;*/
+	border-radius: 5px;
+}
+.data-span{
+	float: right;
+	color: #666666
+}
+ul:not(.nav-pills) a:hover{
+	color: rgb(224,15,3);
+}

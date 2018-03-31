@@ -1,0 +1,9 @@
+<!DOCTYPE xml>
+<Context>
+	<Resource name="jdbc/myweb"
+		auth="Container" type="javax.sql.DataSource"
+		maxActive="100" maxIdle="30" maxWait="10000"
+		username="root" password=""
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/myweb?useUnicode=true&amp;characterEncoding=utf-8"/>
+</Context>
