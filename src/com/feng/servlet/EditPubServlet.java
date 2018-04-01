@@ -28,6 +28,7 @@ public class EditPubServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String pid = request.getParameter("id");
+		System.out.println("editT"+pid);
 		PubBizImpl pubBizImpl = new PubBizImpl();
 		PubManage pub = pubBizImpl.findPubByID(pid);
 		request.setAttribute("pub", pub);

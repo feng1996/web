@@ -19,6 +19,12 @@
 		</div>
 		<form method="post" action="UpdatePub" class="form-horizontal" role="form">
 			<div class="form-group">
+				
+				<div class="col-md-10">
+					<input name="pid" type="hidden" class="form-control" value="${pub.pid }">
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="col-md-2 control-label">标题：</label>
 				<div class="col-md-10">
 					<input name="pubTitle" type="text" class="form-control" value="${pub.pubTitle }">

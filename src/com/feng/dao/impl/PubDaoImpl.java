@@ -41,12 +41,13 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 
 				if (rs != null) {
 					if (rs.next()) {
+						int pid = rs.getInt("pid");
 						String pubTitle = rs.getString("pubTitle");
 						String pubType = rs.getString("pubType");
 						String pubUser = rs.getString("pubUser");
 						String pubTime = rs.getString("pubTime");
 						String pubContent = rs.getString("pubContent");
-						pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent);
+						pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
 					}
 				}
 
@@ -94,8 +95,8 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	@Override
 	public int update(PubManage pub) {
 		System.out.println("update");
-		String sql = "update pub set pubTitle=?,pubType=?,pubUser=?,pubTime=?,pubContent=?) values(?,?,?,?,?)";
-		Object[] params = { pub.getPubTitle(), pub.getPubType(), pub.getPubUser(),pub.getPubTime(), pub.getPubContent() };
+		String sql = "update pub set pubTitle=?,pubType=?,pubUser=?,pubTime=?,pubContent=? where pid=?";
+		Object[] params = { pub.getPubTitle(), pub.getPubType(), pub.getPubUser(),pub.getPubTime(), pub.getPubContent(), pub.getPid() };
 		return this.executeUpdate(sql, params);
 	}
 }

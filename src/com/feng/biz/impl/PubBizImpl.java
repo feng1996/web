@@ -49,8 +49,8 @@ public class PubBizImpl implements PubBiz {
 	}
 	
 	@Override
-	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent) {
-		PubManage pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent);
+	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent,int pid) {
+		PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
 		return pubDaoImpl.update(pub);
 	}
 }

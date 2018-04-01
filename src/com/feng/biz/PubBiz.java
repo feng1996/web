@@ -14,5 +14,5 @@ public interface PubBiz {
 	
 	public List<Integer> delPubByPid(List<Integer> pids);
 	
-	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent);
+	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent, int pid);
 }
