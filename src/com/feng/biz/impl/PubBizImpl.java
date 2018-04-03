@@ -23,11 +23,6 @@ public class PubBizImpl implements PubBiz {
 		return pubDaoImpl.insert(pub);
 	}
 	
-	@Override
-	public boolean delPubByTitle(String pubTitle) {
-		pubDaoImpl.delPubByTitle(pubTitle);
-		return false;
-	}
 	
 	@Override
 	public PubManage findPubByID(String pid) {

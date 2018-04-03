@@ -8,7 +8,6 @@ public interface PubBiz {
 	
 	public int insert(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent);
 	
-	public boolean delPubByTitle(String pubTitle);
 	
 	public PubManage findPubByID(String pid);
 	

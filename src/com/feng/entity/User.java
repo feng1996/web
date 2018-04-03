@@ -1,9 +1,8 @@
 package com.feng.entity;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 public class User {
+	
+	private int id;
 	private String userName;
 	private String pwd;
 	
@@ -12,8 +11,19 @@ public class User {
 		this.userName = userName;
 		this.pwd = pwd;
 	}
+	public User(int id, String userName, String pwd) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.pwd = pwd;
+	}
 	
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -26,4 +36,6 @@ public class User {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
+	
+	
 }

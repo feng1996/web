@@ -341,6 +341,7 @@
 						</div>
 						<div class="func-table">
 							<div class="input-group">
+								<button class="btn btn-success" data-toggle="modal" data-target="#userModal">新加</button>
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">清除</button>
 								</span> <input type="text" class="form-control" placeholder="全文搜索内容...">
@@ -350,30 +351,76 @@
 									</button>
 								</span>
 							</div>
-							<div class="edit-content">
+							
+							<div class="edit-content alltable">
+								<form action="DeleteUser" method="POST">
 								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th><button class="btn btn-success" type="button">新加</button></th>
-											<th>登录名</th>
-											<th>用户姓名</th>
+											<th><input type="checkbox" class="all" />全选 <button type="submit" class="btn btn-warning" name="delbtn">删除所选</button></th>
+											<th>用户名</th>
 											<th>密码</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td><button type="button" class="btn btn-info">编辑</button>
-												<button type="button" class="btn btn-warning">删除</button></td>
-											<td>fjl</td>
-											<td>fjl</td>
-											<td>355</td>
-										</tr>
-
+										<c:forEach var="utr" items="${users}">
+											<tr>
+												<td><input type="checkbox" name="id" value="${utr.id}" /></td>
+												<td>${utr.userName }</td>
+												<td>${utr.pwd }</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
+								</form>
+								<!-- 模态框3（Modal） -->
+								<div class="modal fade" id="userModal" tabindex="-1"
+									role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">用户管理</h4>
+											</div>
+											<div class="modal-body">
+												<form method="post" action="InsertUser"
+													class="form-horizontal" role="form">
+													<div class="form-group">
+														<label class="col-md-2 control-label">用户名：</label>
+														<div class="col-md-10">
+															<input name="userName" type="text" class="form-control"
+																placeholder="">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label">密码：</label>
+														<div class="col-md-10">
+															<input name="pwd" type="text" class="form-control"
+																placeholder="">
+														</div>
+													</div>												
+													<div class="modal-footer">
+														<button type="button" class="btn btn-danger"
+															data-dismiss="modal">取消</button>
+														<button type="submit" class="btn btn-success"
+															name="insbtn">提交</button>
+													</div>
+												</form>
+
+											</div>
+
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal -->
+								</div>															
 							</div>
+							
 						</div>
+
 					</div>
+														
 					<div class="tab-pane" id="panel-4">
 						<div class="function">
 							<label for="">起始时间：</label> <input class='mydatepicker2'

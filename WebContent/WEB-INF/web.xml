@@ -105,6 +105,30 @@
     <servlet-name>UpdateMemberServlet</servlet-name>
     <url-pattern>/UpdateMember</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>InsertUserServlet</servlet-name>
+    <servlet-class>com.feng.servlet.InsertUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertUserServlet</servlet-name>
+    <url-pattern>/InsertUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.feng.servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/DoUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>com.feng.servlet.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <url-pattern>/DeleteUser</url-pattern>
+  </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>
     <res-auth>Container</res-auth>
