@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.feng.biz.PubBiz;
-import com.feng.biz.impl.PubBizImpl;
+import com.feng.biz.MemberBiz;
+import com.feng.biz.impl.MemberBizImpl;
 
-public class DeletePubServlet extends HttpServlet {
+public class DeleteMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,24 +24,24 @@ public class DeletePubServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String db = request.getParameter("delbtn");
-		String p = request.getParameter("pid");
-		System.out.println("deletepub"+p);
+		String m = request.getParameter("mid");
+		System.out.println("huoqudemid"+m);
 		if (db != null) {
-			String[] values = request.getParameterValues("pid");
+			String[] values = request.getParameterValues("mid");
 			if (values == null) {
 				System.out.println("null");
 			} else {
 
-				List<Integer> pids = new ArrayList<Integer>();
+				List<Integer> mids = new ArrayList<Integer>();
 				for (int i = 0; i < values.length; i++) {
-					pids.add(Integer.parseInt(values[i]));
+					mids.add(Integer.parseInt(values[i]));
 				}
-				PubBiz pubBiz = new PubBizImpl();
-				pubBiz.delPubByPid(pids);
+				MemberBiz memberBiz = new MemberBizImpl();
+				memberBiz.delMemberByMid(mids);
 
 			}
 		}
-		request.getRequestDispatcher("DoPub").forward(request, response);
+		request.getRequestDispatcher("DoMember").forward(request, response);
 	}
 
 }

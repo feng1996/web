@@ -65,6 +65,46 @@
     <servlet-name>UpdatePubServlet</servlet-name>
     <url-pattern>/UpdatePub</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>InsertMemberServlet</servlet-name>
+    <servlet-class>com.feng.servlet.InsertMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertMemberServlet</servlet-name>
+    <url-pattern>/InsertMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MemberServlet</servlet-name>
+    <servlet-class>com.feng.servlet.MemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberServlet</servlet-name>
+    <url-pattern>/DoMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteMemberServlet</servlet-name>
+    <servlet-class>com.feng.servlet.DeleteMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteMemberServlet</servlet-name>
+    <url-pattern>/DeleteMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditMemberServlet</servlet-name>
+    <servlet-class>com.feng.servlet.EditMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMemberServlet</servlet-name>
+    <url-pattern>/EditMember</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <servlet-name>UpdateMemberServlet</servlet-name>
+    <servlet-class>com.feng.servlet.UpdateMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateMemberServlet</servlet-name>
+    <url-pattern>/UpdateMember</url-pattern>
+  </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>
     <res-auth>Container</res-auth>

@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 			}
 			HttpSession session = req.getSession();
 			session.setAttribute("name", userName);
-			resp.sendRedirect("DoPub");
+			req.getRequestDispatcher("DoPub").forward(req, resp);
 		}
 	}
 	

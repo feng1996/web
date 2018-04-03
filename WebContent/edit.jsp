@@ -17,6 +17,7 @@
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<h4 class="modal-title" id="myModalLabel">发布管理</h4>
 		</div>
+		<div class="modal-body">
 		<form method="post" action="UpdatePub" class="form-horizontal" role="form">
 			<div class="form-group">
 				
@@ -77,6 +78,7 @@
 			</div>
 
 		</form>
+		</div>
 	</body>
 
 </html>

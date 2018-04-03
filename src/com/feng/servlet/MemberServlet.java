@@ -10,25 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.feng.biz.PubBiz;
+import com.feng.biz.impl.MemberBizImpl;
 import com.feng.biz.impl.PubBizImpl;
+import com.feng.dao.impl.MemberDaoImpl;
 import com.feng.dao.impl.PubDaoImpl;
+import com.feng.entity.Member;
 import com.feng.entity.PubManage;
 
-public class PubServlet extends HttpServlet {
+public class MemberServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			req.setCharacterEncoding("UTF-8");
 			
-			String pid = req.getParameter("pid");
-			System.out.println("pubservlet"+pid);
-			PubBizImpl pubBizImpl = new PubBizImpl();
-			PubManage pub = pubBizImpl.findPubByID(pid);
+			String mid = req.getParameter("mid");
+			System.out.println("domem"+mid);
+			MemberBizImpl memberBizImpl = new MemberBizImpl();
+			Member member = memberBizImpl.findMemberByID(mid);
 			
-			PubDaoImpl pubDaoImpl = new PubDaoImpl();
-			Vector<PubManage> pubs = pubDaoImpl.getPub();
-			req.setAttribute("pubs", pubs);
-			req.setAttribute("pub", pub);
+			MemberDaoImpl memberDaoImpl = new MemberDaoImpl();
+			Vector<Member> members = memberDaoImpl.getMember();
+			req.setAttribute("members", members);
+			req.setAttribute("member", member);
 			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
 		}
 

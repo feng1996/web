@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.feng.biz.PubBiz;
-import com.feng.biz.impl.PubBizImpl;
+import com.feng.biz.impl.MemberBizImpl;
+import com.feng.entity.Member;
 
 
 @SuppressWarnings("serial")
-public class InsertPubServlet extends HttpServlet {
+public class EditMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -26,14 +26,12 @@ public class InsertPubServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String pubTitle = request.getParameter("pubTitle");
-		String pubType = request.getParameter("pubType");
-		String pubUser = request.getParameter("pubUser");
-		String pubTime = request.getParameter("pubTime");
-		String pubContent = request.getParameter("pubContent");
-		PubBiz pubBiz = new PubBizImpl();
-		pubBiz.insert(pubTitle, pubType, pubUser, pubTime, pubContent);
-		request.getRequestDispatcher("DoPub").forward(request, response);
+		String mid = request.getParameter("id");
+		System.out.println("editM"+mid);
+		MemberBizImpl memberBizImpl = new MemberBizImpl();
+		Member member = memberBizImpl.findMemberByID(mid);
+		request.setAttribute("member", member);
+		request.getRequestDispatcher("editMember.jsp").forward(request, response);
 		
 	}
 
