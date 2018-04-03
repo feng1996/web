@@ -432,6 +432,7 @@
 						</div>
 						<div class="func-table">
 							<div class="input-group">
+								<button class="btn btn-success" data-toggle="modal" data-target="#linkModal">新加</button>
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">清除</button>
 								</span> <input type="text" class="form-control" placeholder="全文搜索内容...">
@@ -441,36 +442,92 @@
 									</button>
 								</span>
 							</div>
-							<div class="edit-content">
-								<table class="table table-bordered" id="mytable">
+							<div class="edit-content alltable">
+								<form action="DeleteLink" method="POST">
+								<table class="table table-bordered">
 									<thead>
 										<tr>
-
+											<th><input type="checkbox" class="all" />全选 <button type="submit" class="btn btn-warning" name="delbtn">删除所选</button></th>
 											<th>链接名称</th>
 											<th>链接地址</th>
-											<th>链接图片路径</th>
 											<th>添加时间</th>
-											<th>添加人</th>
-
+											<th>备注</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-
-											<td>市人社局召开学习贯彻党的十九大精神第三次中心组学习（扩大）会</td>
-											<td>行业动态</td>
-											<td>fjl</td>
-											<td>2018/1/1</td>
-											<td>用文字还是用链接？</td>
-										</tr>
+										<c:forEach var="ltr" items="${links}">
+											<tr>
+												<td><input type="checkbox" name="lid" value="${ltr.lid}" /></td>
+												<td>${ltr.linkName }</td>
+												<td>${ltr.linkURL }</td>
+												<td>${ltr.addTime }</td>
+												<td>${ltr.note }</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
+								</form>
+								<!-- 模态框4（Modal） -->
+								<div class="modal fade" id="linkModal" tabindex="-1"
+									role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">友情链接</h4>
+											</div>
+											<div class="modal-body">
+												<form method="post" action="InsertLink"
+													class="form-horizontal" role="form">
+													<div class="form-group">
+														<label class="col-md-2 control-label">链接名称：</label>
+														<div class="col-md-10">
+															<input name="linkName" type="text" class="form-control"
+																placeholder="">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-2 control-label">链接地址：</label>
+														<div class="col-md-10">
+															<input name="linkURL" type="text" class="form-control"
+																placeholder="">
+														</div>
+													</div>			
+													<div class="form-group">
+														<label class="col-md-2 control-label">添加时间：</label>
+														<div class="col-md-10">
+															<input name="addTime" type="text" class="form-control"
+																placeholder="">
+														</div>
+													</div>		
+													<div class="form-group">
+														<label class="col-md-2 control-label">备注：</label>
+														<div class="col-md-10">
+															<input name="note" type="text" class="form-control"
+																placeholder="">
+														</div>
+													</div>											
+													<div class="modal-footer">
+														<button type="button" class="btn btn-danger"
+															data-dismiss="modal">取消</button>
+														<button type="submit" class="btn btn-success"
+															name="insbtn">提交</button>
+													</div>
+												</form>
+
+											</div>
+
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal -->
+								</div>															
 							</div>
-							<button class="btn btn-info" id="add">
-								<i class="glyphicon glyphicon-plus"></i> 添加新的表格行
-							</button>
+							
 						</div>
-					</div>
+
+					</div>														
 					<div class="tab-pane" id="panel-5">
 						<div class="function">
 							<label for="">起始时间：</label> <input class='mydatepicker2'
@@ -536,9 +593,6 @@
 			format : 'yyyy-mm-dd'
 		});
 
-		$('#mytable').SetEditable({
-			$addButton : $('#add')
-		});
 
 		$(".all").change(
 				function() {

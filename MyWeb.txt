@@ -42,9 +42,8 @@ CREATE TABLE IF NOT EXISTS `link` (
   `lid` int(11) NOT NULL AUTO_INCREMENT,
   `linkName` varchar(50) COLLATE utf8_bin NOT NULL,
   `linkURL` varchar(100) COLLATE utf8_bin NOT NULL,
-  `linkPic` varchar(50) COLLATE utf8_bin NOT NULL,
   `addTime` varchar(50) COLLATE utf8_bin NOT NULL,
-  `user` varchar(50) COLLATE utf8_bin NOT NULL,
+  `note` varchar(50) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`lid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 

@@ -129,6 +129,30 @@
     <servlet-name>DeleteUserServlet</servlet-name>
     <url-pattern>/DeleteUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>InsertLinkServlet</servlet-name>
+    <servlet-class>com.feng.servlet.InsertLinkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertLinkServlet</servlet-name>
+    <url-pattern>/InsertLink</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LinkServlet</servlet-name>
+    <servlet-class>com.feng.servlet.LinkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LinkServlet</servlet-name>
+    <url-pattern>/DoLink</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteLinkServlet</servlet-name>
+    <servlet-class>com.feng.servlet.DeleteLinkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteLinkServlet</servlet-name>
+    <url-pattern>/DeleteLink</url-pattern>
+  </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>
     <res-auth>Container</res-auth>
