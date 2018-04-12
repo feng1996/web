@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>MyGraduate</display-name>
   <welcome-file-list>
+    <welcome-file>Home.jsp</welcome-file>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
@@ -152,6 +153,70 @@
   <servlet-mapping>
     <servlet-name>DeleteLinkServlet</servlet-name>
     <url-pattern>/DeleteLink</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowLinkServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ShowLinkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowLinkServlet</servlet-name>
+    <url-pattern>/ShowLink</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowMemberServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ShowMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowMemberServlet</servlet-name>
+    <url-pattern>/ShowMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ApplyMemberServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ApplyMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApplyMemberServlet</servlet-name>
+    <url-pattern>/ApplyMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowIntroServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ShowIntroServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowIntroServlet</servlet-name>
+    <url-pattern>/ShowIntro</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowNewsServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ShowNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowNewsServlet</servlet-name>
+    <url-pattern>/ShowNews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowPolicyServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ShowPolicyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowPolicyServlet</servlet-name>
+    <url-pattern>/ShowPolicy</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowServiceServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ShowServiceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowServiceServlet</servlet-name>
+    <url-pattern>/ShowService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowDownloadServlet</servlet-name>
+    <servlet-class>com.feng.servlet.ShowDownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowDownloadServlet</servlet-name>
+    <url-pattern>/ShowDownload</url-pattern>
   </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>

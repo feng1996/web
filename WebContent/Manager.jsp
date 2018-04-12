@@ -119,7 +119,12 @@
 														<div class="col-md-10">
 															<select name="pubType" class="form-control">
 																<option value="政策法规">政策法规</option>
-																<option value="服务大厅">服务大厅</option>
+																<option value="新闻中心">新闻中心</option>
+																<option value="办事指南">办事指南</option>
+																<option value="事业单位招聘">事业单位招聘</option>
+																<option value="职称资格考试">职称资格考试</option>
+																<option value="常见问题">常见问题</option>
+																<option value="举报投诉">举报投诉</option>
 															</select>
 														</div>
 													</div>
