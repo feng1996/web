@@ -126,160 +126,66 @@
 											<div id="section1">
 												<a href=""><h4>办事指南</h4></a>												
 												<ul class="NewsList">
-													<c:forEach var="shownews" items="${pubs}">														
-										<li>
-											<span class="data-span">${shownews.pubTime }</span>
-											<a href="${shownews.pubContent }">${shownews.pubTitle }</a>
-										</li>
-										</c:forEach>
+													<c:forEach var="shownews" items="${pubs}">	
+													<c:if test="${shownews.pubType == '办事指南' }">													
+														<li>
+															<span class="data-span">${shownews.pubTime }</span>
+															<a href="${shownews.pubContent }">${shownews.pubTitle }</a>
+														</li>
+													</c:if>
+													</c:forEach>
 												</ul>
 											</div>
 											<div id="section2">
 												<a href=""><h4>事业单位招聘</h4></a>
 												<ul class="NewsList">
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
+													<c:forEach var="shownews" items="${pubs}">	
+													<c:if test="${shownews.pubType == '事业单位招聘' }">													
+														<li>
+															<span class="data-span">${shownews.pubTime }</span>
+															<a href="${shownews.pubContent }">${shownews.pubTitle }</a>
+														</li>
+													</c:if>
+													</c:forEach>
 												</ul>
 											</div>
 											<div id="section3">
 												<a href=""><h4>职称资格考试</h4></a>
 												<ul class="NewsList">
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
+													<c:forEach var="shownews" items="${pubs}">	
+													<c:if test="${shownews.pubType == '职称资格考试' }">													
+														<li>
+															<span class="data-span">${shownews.pubTime }</span>
+															<a href="${shownews.pubContent }">${shownews.pubTitle }</a>
+														</li>
+													</c:if>
+													</c:forEach>
 												</ul>
 											</div>
 											<div id="section41">
 												<a href=""><h4>常见问题</h4></a>
 												<ul class="NewsList">
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
+													<c:forEach var="shownews" items="${pubs}">	
+													<c:if test="${shownews.pubType == '常见问题' }">													
+														<li>
+															<span class="data-span">${shownews.pubTime }</span>
+															<a href="${shownews.pubContent }">${shownews.pubTitle }</a>
+														</li>
+													</c:if>
+													</c:forEach>
 												</ul>
 											</div>
 											<div id="section42">
 												<a href=""><h4>举报投诉</h4></a>
 												<ul class="NewsList">
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
-													<li>
-														<span class="data-span">2018/1/23</span>
-														<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-													</li>
+													<c:forEach var="shownews" items="${pubs}">	
+													<c:if test="${shownews.pubType == '举报投诉' }">													
+														<li>
+															<span class="data-span">${shownews.pubTime }</span>
+															<a href="${shownews.pubContent }">${shownews.pubTitle }</a>
+														</li>
+													</c:if>
+													</c:forEach>
 												</ul>
 											</div>
 										</div>

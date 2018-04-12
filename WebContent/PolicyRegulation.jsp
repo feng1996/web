@@ -95,11 +95,13 @@
 								</div>
 								<div class="panel-body">
 									<ul class="NewsList">
-										<c:forEach var="shownews" items="${pubs}">														
+										<c:forEach var="shownews" items="${pubs}">		
+										<c:if test="${shownews.pubType == '政策法规' }">												
 										<li>
 											<span class="data-span">${shownews.pubTime }</span>
-											<a href="${shownews.pubContent }">${shownews.pubTitle }</a>
+											<a href="pubDetails.jsp">${shownews.pubTitle }</a>
 										</li>
+										</c:if>
 										</c:forEach>
 									</ul>
 									<nav class="pagenav">
