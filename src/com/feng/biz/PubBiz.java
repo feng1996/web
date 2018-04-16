@@ -2,6 +2,7 @@ package com.feng.biz;
 
 import java.util.List;
 
+import com.feng.entity.Page;
 import com.feng.entity.PubManage;
 
 public interface PubBiz {
@@ -14,4 +15,6 @@ public interface PubBiz {
 	public List<Integer> delPubByPid(List<Integer> pids);
 	
 	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent, int pid);
+	
+	 public Page findPage(int page,int count);
 }

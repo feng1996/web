@@ -15,6 +15,7 @@ import com.feng.biz.impl.PubBizImpl;
 import com.feng.dao.impl.LinkDaoImpl;
 import com.feng.dao.impl.PubDaoImpl;
 import com.feng.entity.Link;
+import com.feng.entity.Page;
 import com.feng.entity.PubManage;
 
 public class ShowPolicyServlet extends HttpServlet {
@@ -24,9 +25,22 @@ public class ShowPolicyServlet extends HttpServlet {
 			req.setCharacterEncoding("UTF-8");
 			
 			PubDaoImpl pubDaoImpl = new PubDaoImpl();
-			Vector<PubManage> pubs = pubDaoImpl.getPub();
+			PubBizImpl pubBizImpl = new PubBizImpl();
+			Vector<PubManage> pubs = pubDaoImpl.getPolicyPub();
 			req.setAttribute("pubs", pubs);
-			req.getRequestDispatcher("PolicyRegulation.jsp").forward(req, resp);
+			
+			int currentPage=8;
+	        int count=2;
+	        String value = req.getParameter("page");
+	        if(value!=null&&!"".equals(value)){         
+	            currentPage = Integer.parseInt(value);
+	        }
+
+	        Page page  = pubBizImpl.findPage(currentPage, count);
+	        req.setAttribute("page", page);
+	        req.getRequestDispatcher("PolicyRegulation.jsp?page="+currentPage).forward(req, resp);
+			
+			//req.getRequestDispatcher("PolicyRegulation.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

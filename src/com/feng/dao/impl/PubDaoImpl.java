@@ -2,6 +2,7 @@ package com.feng.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Vector;
 
 import com.feng.dao.BaseDao;
@@ -76,6 +77,30 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
 	}
 	
+	@Override
+	public Vector<PubManage> getPolicyPub() {
+		String sql = "select * from pub where pubType = '政策法规'";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<PubManage> pubs = new Vector<PubManage>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					pubs.add(pub);
+				}
+				return pubs;
+			}
+		};
+
+		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
 	
 	@Override
 	public int delPubByPid(int pid) {
@@ -92,4 +117,52 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 		Object[] params = { pub.getPubTitle(), pub.getPubType(), pub.getPubUser(),pub.getPubTime(), pub.getPubContent(), pub.getPid() };
 		return this.executeUpdate(sql, params);
 	}
+	
+	@Override
+    public List<PubManage> findPubs(int page, int count){
+		
+		String sql = "select * from pub where pubType = '政策法规' LIMIT ?,?";
+		Object[] params = { (page-1)*count,count };
+		
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<PubManage> pubs = new Vector<PubManage>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					pubs.add(pub);
+				}
+				return pubs;
+			}
+		};
+
+		return (List<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+       
+    
+    }
+
+    @Override
+    public int count() {
+    	
+    	String sql = "select count(*) from pub";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+		int count = 0;
+        if (rs.next()) {
+            count = rs.getInt(1);
+        }
+        return count;
+			}
+		};
+
+  
+        
+		return this.executeUpdate(sql, params);   
+    }
 }

@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,16 +96,38 @@
 								</div>
 								<div class="panel-body">
 									<ul class="NewsList">
-										<c:forEach var="shownews" items="${pubs}">		
-										<c:if test="${shownews.pubType == '政策法规' }">												
-										<li>
-											<span class="data-span">${shownews.pubTime }</span>
-											<a href="pubDetails.jsp">${shownews.pubTitle }</a>
-										</li>
-										</c:if>
+										<c:forEach var="shownews" items="${page.pubs}">
+											<c:if test="${shownews.pubType == '政策法规' }">
+												<li>
+													<span class="data-span">${shownews.pubTime }</span>
+													<a href="pubDetails.jsp">${shownews.pubTitle }</a>
+												</li>
+											</c:if>
 										</c:forEach>
 									</ul>
-									<nav class="pagenav">
+
+									<div align="center">
+										<c:if test="${page.currentPage>1 }">
+											<a href="${pageContext.request.contextPath }/ShowPolicy?page=${page.currentPage-1}">上一页</a>
+										</c:if>
+										<a href="${pageContext.request.contextPath }/ShowPolicy?page=${1}">首页</a>
+										<c:forEach begin="1" end="${page.totalPage }" step="1" var="i">
+											<c:if test="${page.currentPage==i }">
+												<a href="${pageContext.request.contextPath }/ShowPolicy?page=${i}">
+													<font color="#ff0000">${i}</font>
+												</a>
+											</c:if>
+											<c:if test="${page.currentPage!=i }">
+												<a href="${pageContext.request.contextPath }/ShowPolicy?page=${i}">${i}</a>
+											</c:if>
+										</c:forEach>
+										<a href="${pageContext.request.contextPath }/ShowPolicy?page=${page.totalPage}">末页</a>
+										<c:if test="${page.currentPage< page.totalPage }">
+											<a href="${pageContext.request.contextPath }/ShowPolicy?page=${page.currentPage+1}">下一页</a>
+										</c:if>
+									</div>
+
+									<!--<nav class="pagenav">
 									<ul class="pagination pagination-lg">
 										<li>
 											<a href="#">&laquo;</a>
@@ -128,7 +151,7 @@
 											<a href="#">&raquo;</a>
 										</li>
 									</ul>
-									</nav>
+									</nav>  -->
 								</div>
 							</div>
 						</div>
@@ -136,7 +159,9 @@
 				</div>
 			</div>
 			<footer>
-				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲 <a href="login.jsp">管理员登录</a></p>		
+				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲
+					<a href="login.jsp">管理员登录</a>
+				</p>
 			</footer>
 		</div>
 	</body>

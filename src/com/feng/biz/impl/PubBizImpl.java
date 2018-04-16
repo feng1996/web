@@ -1,5 +1,6 @@
 package com.feng.biz.impl;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -9,6 +10,7 @@ import java.util.Vector;
 import com.feng.biz.PubBiz;
 import com.feng.dao.PubDao;
 import com.feng.dao.impl.PubDaoImpl;
+import com.feng.entity.Page;
 import com.feng.entity.PubManage;
 
 public class PubBizImpl implements PubBiz {
@@ -48,4 +50,22 @@ public class PubBizImpl implements PubBiz {
 		PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
 		return pubDaoImpl.update(pub);
 	}
+	
+	 @Override
+	    public Page findPage(int page, int count) {	       	       
+	            	List<PubManage> pubs = pubDaoImpl.findPubs(page, count);
+	                System.out.println(pubs);
+	                int totle = pubDaoImpl.count();
+	                System.out.println(totle);
+	                Page p = new Page();
+	                p.setPubs(pubs);
+	                p.setCurrentPage(page);
+	                p.setCount(count);
+	                p.setTotalCount(totle);
+	                int totlePage = totle%count==0?totle/count:(totle/count)+1;
+	                p.setTotalPage(totlePage);
+	                return p;
+	            
+	       
+	    }
 }
