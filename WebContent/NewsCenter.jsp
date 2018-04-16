@@ -42,7 +42,7 @@
 							<a href="Home.jsp">首页</a>
 						</li>
 						<li>
-							<a href="ShowIntro">协会简介</a>
+							<a href="Introduction.jsp">协会简介</a>
 						</li>
 						<li   class="active">
 							<a href="ShowNews">新闻中心</a>

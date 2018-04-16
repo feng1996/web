@@ -43,7 +43,7 @@
 							<a href="Home.html">首页</a>
 						</li>
 						<li>
-							<a href="Introduction.html">协会简介</a>
+							<a href="Introduction.jsp">协会简介</a>
 						</li>
 						<li>
 							<a href="NewsCenter.html">新闻中心</a>

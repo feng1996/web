@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.feng.biz.PubBiz;
 import com.feng.biz.impl.PubBizImpl;
@@ -29,6 +30,9 @@ public class PubServlet extends HttpServlet {
 			Vector<PubManage> pubs = pubDaoImpl.getPub();
 			req.setAttribute("pubs", pubs);
 			req.setAttribute("pub", pub);
+			String Id="0";
+			HttpSession session=req.getSession();
+			session.setAttribute("Id",Id);
 			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
 		}
 

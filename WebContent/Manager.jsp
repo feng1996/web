@@ -26,22 +26,17 @@
 
 		<div class="tabbable">
 			<div class="col-md-2 column">
-				<ul class="list-group">
-					<li class="list-group-item"><a href="#panel-1"
-						data-toggle="tab">发布管理</a></li>
-					<li class="list-group-item"><a href="#panel-2"
-						data-toggle="tab">会员单位</a></li>
-					<li class="list-group-item"><a href="#panel-3"
-						data-toggle="tab">用户管理</a></li>
-					<li class="list-group-item"><a href="#panel-4"
-						data-toggle="tab">友情链接</a></li>
-					<li class="list-group-item"><a href="#panel-5"
-						data-toggle="tab">下载管理</a></li>
+				<ul class="list-group" id="ltitle">
+					<li class="list-group-item"><a href="DoPub">发布管理</a></li>
+					<li class="list-group-item"><a href="DoMember">会员单位</a></li>
+					<li class="list-group-item"><a href="DoUser">用户管理</a></li>
+					<li class="list-group-item"><a href="DoLink">友情链接</a></li>
+					<li class="list-group-item"><a href="DoFile">下载管理</a></li>
 				</ul>
 			</div>
 			<div class="col-md-10 column">
 				<div class="tab-content">
-					<div class="tab-pane active" id="panel-1">
+					<div class="tab-pane active lbox">
 
 
 						<div class="function">
@@ -169,7 +164,7 @@
 						</div>
 
 					</div>
-					<div class="tab-pane" id="panel-2">
+					<div class="tab-pane lbox">
 						<div class="function">
 							<label for="">起始时间：</label> <input class='mydatepicker2'
 								type='text' /> <label for="">截止时间:</label> <input
@@ -335,7 +330,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane" id="panel-3">
+					<div class="tab-pane lbox">
 						<div class="function">
 							<label for="">起始时间：</label> <input class='mydatepicker2'
 								type='text' /> <label for="">截止时间:</label> <input
@@ -426,7 +421,7 @@
 
 					</div>
 														
-					<div class="tab-pane" id="panel-4">
+					<div class="tab-pane lbox">
 						<div class="function">
 							<label for="">起始时间：</label> <input class='mydatepicker2'
 								type='text' /> <label for="">截止时间:</label> <input
@@ -532,8 +527,9 @@
 							
 						</div>
 
-					</div>														
-					<div class="tab-pane" id="panel-5">
+					</div>		
+																	
+					<div class="tab-pane lbox">
 						<div class="function">
 							<label for="">起始时间：</label> <input class='mydatepicker2'
 								type='text' /> <label for="">截止时间:</label> <input
@@ -544,6 +540,7 @@
 						</div>
 						<div class="func-table">
 							<div class="input-group">
+								<button class="btn btn-success" data-toggle="modal" data-target="#uploadModal">新加</button>
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">清除</button>
 								</span> <input type="text" class="form-control" placeholder="全文搜索内容...">
@@ -553,32 +550,75 @@
 									</button>
 								</span>
 							</div>
-							<div class="edit-content">
+							
+							<div class="edit-content alltable">
+								<form action="DeleteFile" method="POST">
 								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th><button class="btn btn-success" type="button">新加</button></th>
-											<th>标题</th>
-											<th>所属类别</th>
-											<th>发布人</th>
-											<th>发布时间</th>
-											<th>发布内容</th>
+											<th><input type="checkbox" class="all" />全选 <button type="submit" class="btn btn-warning" name="delbtn">删除所选</button></th>
+											<th>文件标题</th>
+											<th>文件路径</th>
+											<th>下载数量</th>
+											<th>上传人</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td><button type="button" class="btn btn-warning">删除</button></td>
-											<td>市人社局召开学习贯彻党的十九大精神第三次中心组学习（扩大）会</td>
-											<td>行业动态</td>
-											<td>fjl</td>
-											<td>2018/1/1</td>
-											<td>用文字还是用链接？</td>
-										</tr>
-
+										<c:forEach var="ftr" items="${files}">
+											<tr>
+												<td><input type="checkbox" name="fid" value="${ftr.fid}" /></td>
+												<td>${ftr.fileName }</td>
+												<td>${ftr.path }</td>
+												<td>${ftr.downNum }</td>
+												<td>${ftr.userName }</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
+								</form>
+								<!-- 模态框5（Modal） -->
+								<div class="modal fade" id="uploadModal" tabindex="-1"
+									role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">下载管理</h4>
+											</div>
+											<div class="modal-body">
+												<form method="post" action="UpLoad"
+													class="form-horizontal" role="form">
+													<div class="form-group">
+   														<label for="inputfile">文件上传</label>
+                                                        <input type="file" name="upfile">
+ 													</div>
+													<!--<div class="form-group">
+														<label class="col-md-2 control-label">文件标题：</label>
+														<div class="col-md-10">
+															<input name="fileName" type="text" class="form-control"
+																placeholder="">
+														</div>
+													</div>	 -->																						
+													<div class="modal-footer">
+														<button type="button" class="btn btn-danger"
+															data-dismiss="modal">取消</button>
+														<button type="submit" class="btn btn-success"
+															name="insbtn">提交</button>
+													</div>
+												</form>
+
+											</div>
+
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal -->
+								</div>															
 							</div>
+							
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -594,11 +634,28 @@
 	</div>
 
 	<script type="text/javascript">
+	window.onload=function(){
+		var a=document.getElementById("ltitle").getElementsByTagName("a");
+		var items=document.getElementsByClassName("lbox");
+		
+		
+		//for (var i=0;i<a.length;i++) {
+		//	a[i].onclick=function(){		
+				var Id= "<%=session.getAttribute("Id")%>";
+				for (var i=0;i<items.length;i++) {
+					items[i].style.display="none";
+				}
+				items[Id].style.display="block";
+			//}
+		//}
+	}
+		
 		$('.mydatepicker2').dcalendarpicker({
 			format : 'yyyy-mm-dd'
 		});
 
-
+		
+		
 		$(".all").change(
 				function() {
 					var checked = $(this).get(0).checked;

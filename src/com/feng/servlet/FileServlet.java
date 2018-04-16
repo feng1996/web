@@ -10,30 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.feng.biz.PubBiz;
-import com.feng.biz.impl.PubBizImpl;
-import com.feng.biz.impl.UserBizImpl;
-import com.feng.dao.impl.PubDaoImpl;
-import com.feng.dao.impl.UserDaoImpl;
-import com.feng.entity.PubManage;
-import com.feng.entity.User;
+import com.feng.biz.FileBiz;
+import com.feng.biz.impl.FileBizImpl;
+import com.feng.dao.impl.FileDaoImpl;
+import com.feng.entity.FileManage;
 
-public class UserServlet extends HttpServlet {
+public class FileServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			req.setCharacterEncoding("UTF-8");
 			
-			String id = req.getParameter("id");
-			System.out.println("userservlet"+id);
-			UserBizImpl userBizImpl = new UserBizImpl();
-			User user = userBizImpl.findUserByID(id);
+			String fid = req.getParameter("fid");
+			System.out.println("fileservlet"+fid);
+			FileBizImpl fileBizImpl = new FileBizImpl();
+			FileManage file = fileBizImpl.findFileByID(fid);
 			
-			UserDaoImpl userDaoImpl = new UserDaoImpl();
-			Vector<User> users = userDaoImpl.getUser();
-			req.setAttribute("users", users);
-			req.setAttribute("user", user);
-			String Id="2";
+			FileDaoImpl fileDaoImpl = new FileDaoImpl();
+			Vector<FileManage> files = fileDaoImpl.getFile();
+			req.setAttribute("files", files);
+			req.setAttribute("file", file);
+			String Id="4";
 			HttpSession session=req.getSession();
 			session.setAttribute("Id",Id);
 			req.getRequestDispatcher("Manager.jsp").forward(req, resp);

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.feng.biz.PubBiz;
 import com.feng.biz.impl.LinkBizImpl;
@@ -32,6 +33,9 @@ public class LinkServlet extends HttpServlet {
 			Vector<Link> links = linkDaoImpl.getLink();
 			req.setAttribute("links", links);
 			req.setAttribute("link", link);
+			String Id="3";
+			HttpSession session=req.getSession();
+			session.setAttribute("Id",Id);
 			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
 		}
 

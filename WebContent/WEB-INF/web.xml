@@ -211,12 +211,20 @@
     <url-pattern>/ShowService</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>ShowDownloadServlet</servlet-name>
-    <servlet-class>com.feng.servlet.ShowDownloadServlet</servlet-class>
+    <servlet-name>UpLoadServlet</servlet-name>
+    <servlet-class>com.feng.servlet.UpLoadServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ShowDownloadServlet</servlet-name>
-    <url-pattern>/ShowDownload</url-pattern>
+    <servlet-name>UpLoadServlet</servlet-name>
+    <url-pattern>/UpLoad</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>FileServlet</servlet-name>
+    <servlet-class>com.feng.servlet.FileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileServlet</servlet-name>
+    <url-pattern>/DoFile</url-pattern>
   </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>

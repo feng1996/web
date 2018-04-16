@@ -48,13 +48,11 @@ CREATE TABLE IF NOT EXISTS `link` (
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
-CREATE TABLE IF NOT EXISTS `download` (
-  `did` int(11) NOT NULL AUTO_INCREMENT,
-  `fileTitle` varchar(50) COLLATE utf8_bin NOT NULL,
-  `fileType` varchar(100) COLLATE utf8_bin NOT NULL,
-  `fileURL` varchar(50) COLLATE utf8_bin NOT NULL,
-  `fileNum` varchar(50) COLLATE utf8_bin NOT NULL,
-  `upTime` varchar(50) COLLATE utf8_bin NOT NULL,
-  `upUser` varchar(50) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`did`)
+CREATE TABLE IF NOT EXISTS `file` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `fileName` varchar(50) COLLATE utf8_bin NOT NULL,
+  `path` varchar(100) COLLATE utf8_bin NOT NULL,
+  `downNum` int(11) NOT NULL,
+  `userName` varchar(50) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`fid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
