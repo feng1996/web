@@ -163,6 +163,29 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 
   
         
-		return this.executeUpdate(sql, params);   
+		return (int) this.executeQuery(getUsersByNameProcessor, sql, params);  
+    }
+    
+    public Vector<PubManage> getPolicySearch(String sw){
+    	String sql = "select * from pub where pubType = '政策法规' and pubTitle like ?";
+		Object[] params = {'%'+sw+'%'};
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<PubManage> pubs = new Vector<PubManage>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					pubs.add(pub);
+				}
+				return pubs;
+			}
+		};
+
+		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
     }
 }

@@ -50,7 +50,7 @@
     <servlet-name>DeletePubServlet</servlet-name>
     <url-pattern>/DeletePub</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>EditPubServlet</servlet-name>
     <servlet-class>com.feng.servlet.EditPubServlet</servlet-class>
   </servlet>
@@ -58,7 +58,7 @@
     <servlet-name>EditPubServlet</servlet-name>
     <url-pattern>/EditPub</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <servlet-name>UpdatePubServlet</servlet-name>
     <servlet-class>com.feng.servlet.UpdatePubServlet</servlet-class>
   </servlet>
@@ -98,7 +98,7 @@
     <servlet-name>EditMemberServlet</servlet-name>
     <url-pattern>/EditMember</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <servlet-name>UpdateMemberServlet</servlet-name>
     <servlet-class>com.feng.servlet.UpdateMemberServlet</servlet-class>
   </servlet>
@@ -218,13 +218,21 @@
     <servlet-name>UpLoadServlet</servlet-name>
     <url-pattern>/UpLoad</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>FileServlet</servlet-name>
     <servlet-class>com.feng.servlet.FileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FileServlet</servlet-name>
     <url-pattern>/DoFile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PolicySearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.PolicySearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PolicySearchServlet</servlet-name>
+    <url-pattern>/PolicySearch</url-pattern>
   </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>

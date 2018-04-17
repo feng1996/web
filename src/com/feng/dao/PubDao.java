@@ -22,4 +22,6 @@ public interface PubDao {
 	public List<PubManage> findPubs(int page , int count);
 
     public int count();
+    
+    public Vector<PubManage> getPolicySearch(String sw);
 }

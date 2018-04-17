@@ -576,45 +576,28 @@
 									</tbody>
 								</table>
 								</form>
-								<!-- 模态框5（Modal） -->
-								<div class="modal fade" id="uploadModal" tabindex="-1"
-									role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">下载管理</h4>
-											</div>
-											<div class="modal-body">
-												<form method="post" action="UpLoad"
-													class="form-horizontal" role="form">
-													<div class="form-group">
-   														<label for="inputfile">文件上传</label>
-                                                        <input type="file" name="upfile">
- 													</div>
-													<!--<div class="form-group">
-														<label class="col-md-2 control-label">文件标题：</label>
-														<div class="col-md-10">
-															<input name="fileName" type="text" class="form-control"
-																placeholder="">
-														</div>
-													</div>	 -->																						
-													<div class="modal-footer">
-														<button type="button" class="btn btn-danger"
-															data-dismiss="modal">取消</button>
-														<button type="submit" class="btn btn-success"
-															name="insbtn">提交</button>
-													</div>
-												</form>
-
-											</div>
-
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal -->
-								</div>															
+								<!-- 文件上传 -->
+	<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content" style="width:820px">
+				<div class="modal-header">
+					<h5 class="modal-title" id="uploadModalLabel">文件上传</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="file-loading">
+						<input type="file" name="txt_file" multiple  id="uploadFile" />
+					</div>
+					<div id="kartik-file-errors"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>															
 							</div>
 							
 						</div>

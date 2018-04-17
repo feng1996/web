@@ -18,30 +18,19 @@ import com.feng.entity.Link;
 import com.feng.entity.Page;
 import com.feng.entity.PubManage;
 
-public class ShowPolicyServlet extends HttpServlet {
+public class PolicySearchServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			req.setCharacterEncoding("UTF-8");
-			
+			String sw = req.getParameter("searchWord");
+			System.out.println("searchWord"+sw);
 			PubDaoImpl pubDaoImpl = new PubDaoImpl();
-			PubBizImpl pubBizImpl = new PubBizImpl();
-			Vector<PubManage> pubs = pubDaoImpl.getPolicyPub();
-			req.setAttribute("pubs", pubs);
+			Vector<PubManage> searchs = pubDaoImpl.getPolicySearch(sw);
+			req.setAttribute("searchs", searchs);
 			
-			int currentPage=1;
-	        int count=5;
-	        String value = req.getParameter("page");
-	        if(value!=null&&!"".equals(value)){         
-	            currentPage = Integer.parseInt(value);
-	        }
-
-	        Page page  = pubBizImpl.findPage(currentPage, count);
-	        System.out.println("policy"+pubs.size());
-	        req.setAttribute("page", page);
-	        req.getRequestDispatcher("PolicyRegulation.jsp?page="+currentPage).forward(req, resp);
 			
-			//req.getRequestDispatcher("PolicyRegulation.jsp").forward(req, resp);
+			req.getRequestDispatcher("search.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
