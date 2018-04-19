@@ -27,14 +27,16 @@
 						</div>
 						<div class="col-md-4 column">
 							<!--搜索栏-->
+							<form method="post" action="MemberSearch">
 							<div class="input-group" id="search">
-								<input type="text" class="form-control">
-								<span class="input-group-btn">
-                   	    			<button class="btn btn-default" type="button">
+                    			<input type="text" class="form-control" name="searchWord">
+                   				<span class="input-group-btn">
+                   	    			<button class="btn btn-default" type="submit">
                         				<span class="glyphicon glyphicon-search"></span>
-								</button>
-								</span>
-							</div>
+                       				</button>
+                   			 	</span>
+                			</div> 
+                			</form>	
 						</div>
 					</div>
 					<!--导航栏-->

@@ -85,4 +85,27 @@ public class LinkDaoImpl extends BaseDao implements LinkDao {
 	}
 	
 	
+	@Override
+	public Vector<Link> getLinkSearch(String sw) {
+		String sql = "select * from link where linkName like ?";
+		Object[] params = {'%'+sw+'%' };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<Link> links = new Vector<Link>();
+				while (rs.next()) {	
+					int lid = rs.getInt("lid");
+					String linkName = rs.getString("linkName");
+					String linkURL = rs.getString("linkURL");
+					String addTime = rs.getString("addTime");
+					String note = rs.getString("note");
+					Link link = new Link(lid,linkName,linkURL,addTime,note);
+					links.add(link);
+				}
+				return links;
+			}
+		};
+
+		return (Vector<Link>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
 }

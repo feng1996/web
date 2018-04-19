@@ -18,7 +18,7 @@ import com.feng.entity.Link;
 import com.feng.entity.Page;
 import com.feng.entity.PubManage;
 
-public class PolicySearchServlet extends HttpServlet {
+public class HallSearchServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,11 +26,11 @@ public class PolicySearchServlet extends HttpServlet {
 			String sw = req.getParameter("searchWord");
 			System.out.println("searchWord"+sw);
 			PubDaoImpl pubDaoImpl = new PubDaoImpl();
-			Vector<PubManage> searchs = pubDaoImpl.getPolicySearch(sw);
+			Vector<PubManage> searchs = pubDaoImpl.getHallSearch(sw);
 			req.setAttribute("searchs", searchs);
 			
 			
-			req.getRequestDispatcher("searchPolicy.jsp").forward(req, resp);
+			req.getRequestDispatcher("searchHall.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

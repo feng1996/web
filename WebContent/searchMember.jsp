@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>政策法规</title>
+		<title>互动交流</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/NewPolice.css" />
@@ -26,8 +26,9 @@
 							<img alt="" src="img/header-logo2.png" />
 						</div>
 						<div class="col-md-4 column">
+						
 							<!--搜索栏-->
-							<form method="post" action="PolicySearch">
+							<form method="post" action="MemberSearch">
 							<div class="input-group" id="search">
                     			<input type="text" class="form-control" name="searchWord">
                    				<span class="input-group-btn">
@@ -36,7 +37,7 @@
                        				</button>
                    			 	</span>
                 			</div> 
-                			</form>							
+                			</form>	
 						</div>
 					</div>
 					<!--导航栏-->
@@ -50,13 +51,13 @@
 						<li>
 							<a href="ShowNews">新闻中心</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="ShowPolicy">政策法规</a>
 						</li>
 						<li>
 							<a href="ShowService">服务大厅</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="ShowMember">会员中心</a>
 						</li>
 						<li>
@@ -93,71 +94,18 @@
 							<div class="panel panel-success">
 								<div class="panel-heading">
 									<h3 class="panel-title">
-            							政策法规
+            							会员中心
        								</h3>
 								</div>
 								<div class="panel-body">
 									<ul class="NewsList">
-										<c:forEach var="shownews" items="${page.pubs}">
-											<c:if test="${shownews.pubType == '政策法规' }">
-												<li>
-													<span class="data-span">${shownews.pubTime }</span>
-													<a href="pubDetails.jsp">${shownews.pubTitle }</a>
-												</li>
-											</c:if>
-										</c:forEach>
+										<c:forEach var="results" items="${searchs}">																										
+										<li>											
+											<a href="pubDetails.jsp">${results.memberName }</a>
+										</li>
+							
+										</c:forEach>										
 									</ul>
-
-									<!--<div align="center">-->
-									<nav class="pagenav">
-									<ul class="pagination pagination-lg">
-										<c:if test="${page.currentPage>1 }">
-											<li><a href="${pageContext.request.contextPath }/ShowPolicy?page=${page.currentPage-1}">&laquo;</a></li>
-										</c:if>
-										<li><a href="${pageContext.request.contextPath }/ShowPolicy?page=${1}">首页</a></li>
-										<c:forEach begin="1" end="${page.totalPage }" step="1" var="i">
-											<c:if test="${page.currentPage==i }">
-												<li><a href="${pageContext.request.contextPath }/ShowPolicy?page=${i}">${i}
-													
-												</a></li>
-											</c:if>
-											<c:if test="${page.currentPage!=i }">
-												<li><a href="${pageContext.request.contextPath }/ShowPolicy?page=${i}">${i}</a></li>
-											</c:if>
-										</c:forEach>
-										<li><a href="${pageContext.request.contextPath }/ShowPolicy?page=${page.totalPage}">末页</a></li>
-										<c:if test="${page.currentPage< page.totalPage }">
-											<li><a href="${pageContext.request.contextPath }/ShowPolicy?page=${page.currentPage+1}">&raquo;</a></li>
-										</c:if>
-									</ul>
-									</nav>
-									</div>
-
-									<!--<nav class="pagenav">
-									<ul class="pagination pagination-lg">
-										<li>
-											<a href="#">&laquo;</a>
-										</li>
-										<li>
-											<a href="#">1</a>
-										</li>
-										<li>
-											<a href="#">2</a>
-										</li>
-										<li>
-											<a href="#">3</a>
-										</li>
-										<li>
-											<a href="#">4</a>
-										</li>
-										<li>
-											<a href="#">5</a>
-										</li>
-										<li>
-											<a href="#">&raquo;</a>
-										</li>
-									</ul>
-									</nav>  -->
 								</div>
 							</div>
 						</div>

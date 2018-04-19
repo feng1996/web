@@ -27,44 +27,46 @@
 						</div>
 						<div class="col-md-4 column">
 							<!--搜索栏-->
+							<form method="post" action="LinkSearch">
 							<div class="input-group" id="search">
-								<input type="text" class="form-control">
-								<span class="input-group-btn">
-                   	    			<button class="btn btn-default" type="button">
+                    			<input type="text" class="form-control" name="searchWord">
+                   				<span class="input-group-btn">
+                   	    			<button class="btn btn-default" type="submit">
                         				<span class="glyphicon glyphicon-search"></span>
-								</button>
-								</span>
-							</div>
+                       				</button>
+                   			 	</span>
+                			</div> 
+                			</form>	
 						</div>
 					</div>
 					<!--导航栏-->
 					<ul class="nav nav-pills" style="background: rgba(100,100,100,0.2);">
-						<li>
-							<a href="Home.html">首页</a>
+						<li  class="active">
+							<a href="Home.jsp">首页</a>
 						</li>
 						<li>
 							<a href="Introduction.jsp">协会简介</a>
 						</li>
 						<li>
-							<a href="NewsCenter.html">新闻中心</a>
+							<a href="ShowNews">新闻中心</a>
 						</li>
 						<li>
-							<a href="PolicyRegulation.html">政策法规</a>
+							<a href="ShowPolicy">政策法规</a>
 						</li>
 						<li>
-							<a href="ServiceHall.html">服务大厅</a>
+							<a href="ShowService">服务大厅</a>
 						</li>
 						<li>
 							<a href="ShowMember">会员中心</a>
 						</li>
 						<li>
-							<a href="DataDownload.html">资料下载</a>
+							<a href="ShowDownload">资料下载</a>
 						</li>
 						<li class="active">
 							<a href="ShowLink">友情链接</a>
 						</li>
 						<li>
-							<a href="Interaction.jsp">互动交流</a>
+							<a href=Interaction.jsp>互动交流</a>
 						</li>
 					</ul>
 				</div>

@@ -3,6 +3,7 @@ package com.feng.dao;
 import java.util.Vector;
 
 import com.feng.entity.Link;
+import com.feng.entity.Member;
 
 public interface LinkDao {
 
@@ -15,4 +16,6 @@ public interface LinkDao {
 	public Link findLinkByID(String lid);
 	public Vector<Link> getLink();
 	public int delLinkByLid(int lid);
+	
+	public Vector<Link> getLinkSearch(String sw);
 }

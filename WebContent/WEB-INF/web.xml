@@ -234,6 +234,38 @@
     <servlet-name>PolicySearchServlet</servlet-name>
     <url-pattern>/PolicySearch</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>NewsSearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.NewsSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsSearchServlet</servlet-name>
+    <url-pattern>/NewsSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HallSearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.HallSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HallSearchServlet</servlet-name>
+    <url-pattern>/HallSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MemberSearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.MemberSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberSearchServlet</servlet-name>
+    <url-pattern>/MemberSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LinkSearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.LinkSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LinkSearchServlet</servlet-name>
+    <url-pattern>/LinkSearch</url-pattern>
+  </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>
     <res-auth>Container</res-auth>

@@ -24,4 +24,6 @@ public interface PubDao {
     public int count();
     
     public Vector<PubManage> getPolicySearch(String sw);
+    public Vector<PubManage> getNewsSearch(String sw);
+    public Vector<PubManage> getHallSearch(String sw);
 }

@@ -101,4 +101,33 @@ public class MemberDaoImpl extends BaseDao implements MemberDao {
 		Object[] params = { member.getMemberName(), member.getMemberCode(), member.getMemberType(),member.getMemberAddr(), member.getMemberPerson(), member.getMemberID(), member.getMemberContact(), member.getMemberPhone(),member.getMemberIntro(), member.getMemberURL(), member.getMid() };
 		return this.executeUpdate(sql, params);
 	}
+	
+	@Override
+	public Vector<Member> getMemberSearch(String sw) {
+		String sql = "select * from member where memberName like ?";
+		Object[] params = {'%'+sw+'%' };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<Member> members = new Vector<Member>();
+				while (rs.next()) {	
+					int mid = rs.getInt("mid");
+					String memberName = rs.getString("memberName");
+					String memberCode = rs.getString("memberCode");
+					String memberType = rs.getString("memberType");
+					String memberAddr = rs.getString("memberAddr");
+					String memberPerson = rs.getString("memberPerson");
+					String memberID = rs.getString("memberID");
+					String memberContact = rs.getString("memberContact");
+					String memberPhone = rs.getString("memberPhone");
+					String memberIntro = rs.getString("memberIntro");
+					String memberURL = rs.getString("memberURL");
+					Member member = new Member(mid,memberName,memberCode,memberType,memberAddr,memberPerson,memberID,memberContact,memberPhone,memberIntro,memberURL);
+					members.add(member);
+				}
+				return members;
+			}
+		};
+
+		return (Vector<Member>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
 }
