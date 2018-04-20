@@ -10,12 +10,15 @@
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/dcalendar.picker.css" />
 <link rel="stylesheet" href="css/manager.css" />
+<link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"
 	charset="utf-8"></script>
 <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/dcalendar.picker.js" type="text/javascript"
 	charset="utf-8"></script>
 <script src="js/bootstable.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/fileinput.min.js" type="text/javascript"></script>
+<script src="js/drive.js" type="text/javascript"></script>
 </head>
 
 <body>

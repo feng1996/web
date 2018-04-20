@@ -16,7 +16,7 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 	@Override
 	public int insert(FileManage file) {
 		System.out.println("insert");
-		String sql = "insert file (fileName,path,downNum,user) values(?,?,?,?)";
+		String sql = "insert file (fileName,path,downNum,userName) values(?,?,?,?)";
 		Object[] params = { file.getFileName(),file.getPath(),file.getDownNum(),file.getUserName()};
 		return this.executeUpdate(sql, params);
 	}
@@ -38,8 +38,8 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 						String fileName = rs.getString("fileName");
 						String path = rs.getString("path");
 						int downNum = rs.getInt("downNum");
-						String user = rs.getString("user");
-						file = new FileManage(fid,fileName,path,downNum,user);
+						String userName = rs.getString("userName");
+						file = new FileManage(fid,fileName,path,downNum,userName);
 					}
 				}
 
@@ -63,8 +63,8 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 					String fileName = rs.getString("fileName");
 					String path = rs.getString("path");
 					int downNum = rs.getInt("downNum");
-					String user = rs.getString("user");
-					FileManage file = new FileManage(fid,fileName,path,downNum,user);
+					String userName = rs.getString("userName");
+					FileManage file = new FileManage(fid,fileName,path,downNum,userName);
 					files.add(file);
 				}
 				return files;

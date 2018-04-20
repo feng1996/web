@@ -19,7 +19,9 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.feng.dao.impl.FileDaoImpl;
+import com.feng.entity.CurrentTime;
 import com.feng.entity.FileManage;
+
 
 import net.sf.json.JSONObject;
 
@@ -96,7 +98,7 @@ public class UpLoadServlet extends HttpServlet {
 			if(isInbox) {
 				path = "inbox/"+path;
 			}
-			savePath = this.getServletContext().getRealPath("/WEB-INF/Asso/"+userName+"/"+path);
+			savePath = this.getServletContext().getRealPath("/WEB-INF/Drive/"+userName+"/"+path);
 			
 			File folder = new File(savePath);
 			
@@ -117,11 +119,13 @@ public class UpLoadServlet extends HttpServlet {
 			fileItem.delete();
 			System.out.println("文件上传成功!");
 			System.out.println("文件大小："+fileSize);
+
 			
-			FileManage fileManage = new FileManage(fileName, path, 0, userName);
+			String updateTime = new CurrentTime().getDateString();
+			FileManage fileMessage = new FileManage(fileName, savePath,0, userName);
 			
 			FileDaoImpl fileDaoImpl = new FileDaoImpl();
-			fileDaoImpl.insert(fileManage);
+			fileDaoImpl.insert(fileMessage);
 			System.out.println("数据库操作成功");
 		} catch(Exception e) {
 			PrintWriter out = resp.getWriter();
@@ -141,7 +145,6 @@ public class UpLoadServlet extends HttpServlet {
 		json.put("success", "上传成功！");
 		out.println(json);
         out.close();
-        req.getRequestDispatcher("DoFile").forward(req, resp);
 	}
 	
 	@Override
