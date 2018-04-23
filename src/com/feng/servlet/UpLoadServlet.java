@@ -54,7 +54,6 @@ public class UpLoadServlet extends HttpServlet {
 			}
 			List<FileItem> fileList = upload.parseRequest(req);
 			FileItem fileItem = null;
-			boolean isInbox = false;
 			for(FileItem item : fileList) {
 				// 普通数据项
 				if(item.isFormField()) {
@@ -72,7 +71,6 @@ public class UpLoadServlet extends HttpServlet {
 							preName = preName + value + "_";
 						}
 					} else if(name.equals("userName")) {
-						isInbox = true;
 						userName = value;
 					}
 				} else {
@@ -94,11 +92,8 @@ public class UpLoadServlet extends HttpServlet {
 			fileName = fileName.substring(fileName.lastIndexOf("/")+1);
 			fileName = preName+fileName;
 			// 添加UUID
-			String uuidName = makeFileName(fileName);
-			if(isInbox) {
-				path = "inbox/"+path;
-			}
-			savePath = this.getServletContext().getRealPath("/WEB-INF/Drive/"+userName+"/"+path);
+			String uuidName = makeFileName(fileName);			
+			savePath = this.getServletContext().getRealPath("/WEB-INF/Drive/"+path);
 			
 			File folder = new File(savePath);
 			
@@ -107,7 +102,8 @@ public class UpLoadServlet extends HttpServlet {
 				folder.mkdirs();
 			}
 			InputStream in = fileItem.getInputStream();
-			FileOutputStream out = new FileOutputStream(savePath+"/"+uuidName);
+			FileOutputStream out = new FileOutputStream(savePath+"/"+fileName);
+			System.out.println("uuidName"+uuidName);
 			byte buffer[] = new byte[1024];
 			int len = 0;
 			while((len=in.read(buffer)) > 0) {

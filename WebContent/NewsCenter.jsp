@@ -97,7 +97,7 @@
 								</div>
 								<div class="panel-body">
 									<ul class="NewsList">
-										<c:forEach var="shownews" items="${pubs}">														
+										<c:forEach var="shownews" items="${page.pubs}">														
 										<c:if test="${shownews.pubType == '新闻中心' }">												
 										<li>
 											<span class="data-span">${shownews.pubTime }</span>
@@ -108,27 +108,24 @@
 									</ul>
 									<nav class="pagenav">
 									<ul class="pagination pagination-lg">
-										<li>
-											<a href="#">&laquo;</a>
-										</li>
-										<li>
-											<a href="#">1</a>
-										</li>
-										<li>
-											<a href="#">2</a>
-										</li>
-										<li>
-											<a href="#">3</a>
-										</li>
-										<li>
-											<a href="#">4</a>
-										</li>
-										<li>
-											<a href="#">5</a>
-										</li>
-										<li>
-											<a href="#">&raquo;</a>
-										</li>
+										<c:if test="${page.currentPage>1 }">
+											<li><a href="${pageContext.request.contextPath }/ShowNews?page=${page.currentPage-1}">&laquo;</a></li>
+										</c:if>
+										<li><a href="${pageContext.request.contextPath }/ShowNews?page=${1}">首页</a></li>
+										<c:forEach begin="1" end="${page.totalPage }" step="1" var="i">
+											<c:if test="${page.currentPage==i }">
+												<li><a href="${pageContext.request.contextPath }/ShowNews?page=${i}">${i}
+													
+												</a></li>
+											</c:if>
+											<c:if test="${page.currentPage!=i }">
+												<li><a href="${pageContext.request.contextPath }/ShowNews?page=${i}">${i}</a></li>
+											</c:if>
+										</c:forEach>
+										<li><a href="${pageContext.request.contextPath }/ShowNews?page=${page.totalPage}">末页</a></li>
+										<c:if test="${page.currentPage< page.totalPage }">
+											<li><a href="${pageContext.request.contextPath }/ShowNews?page=${page.currentPage+1}">&raquo;</a></li>
+										</c:if>
 									</ul>
 									</nav>
 								</div>

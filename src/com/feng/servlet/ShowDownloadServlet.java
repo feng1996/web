@@ -9,38 +9,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.feng.biz.PubBiz;
-import com.feng.biz.impl.LinkBizImpl;
+import com.feng.biz.impl.FileBizImpl;
 import com.feng.biz.impl.PubBizImpl;
-import com.feng.dao.impl.LinkDaoImpl;
-import com.feng.dao.impl.PubDaoImpl;
-import com.feng.entity.Link;
+import com.feng.dao.impl.FileDaoImpl;
+import com.feng.dao.impl.MemberDaoImpl;
+import com.feng.entity.FileManage;
+import com.feng.entity.Member;
 import com.feng.entity.Page;
-import com.feng.entity.PubManage;
 
-public class ShowPolicyServlet extends HttpServlet {
+
+public class ShowDownloadServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			req.setCharacterEncoding("UTF-8");
-			
-			PubDaoImpl pubDaoImpl = new PubDaoImpl();
-			PubBizImpl pubBizImpl = new PubBizImpl();
-			Vector<PubManage> pubs = pubDaoImpl.getPolicyPub();
-			req.setAttribute("pubs", pubs);
-			
+			FileBizImpl fileBizImpl = new FileBizImpl();
+			FileDaoImpl fileDaoImpl = new FileDaoImpl();
+			Vector<FileManage> files = fileDaoImpl.getFile();
+			req.setAttribute("files", files);
 			int currentPage=1;
 	        int count=8;
 	        String value = req.getParameter("page");
 	        if(value!=null&&!"".equals(value)){         
 	            currentPage = Integer.parseInt(value);
 	        }
-	        String pubType = "政策法规";
-	        Page page  = pubBizImpl.findPolicyPage(currentPage, count,pubType);
-	        System.out.println("policy"+pubs.size());
+	        Page page  = fileBizImpl.findPage(currentPage, count);
+	        System.out.println("files"+files.size());
 	        req.setAttribute("page", page);
-	        req.getRequestDispatcher("PolicyRegulation.jsp?page="+currentPage).forward(req, resp);
-			
+	        req.getRequestDispatcher("DownLoad.jsp?page="+currentPage).forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

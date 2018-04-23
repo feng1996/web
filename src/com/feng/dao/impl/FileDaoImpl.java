@@ -2,12 +2,14 @@ package com.feng.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Vector;
 
 import com.feng.dao.BaseDao;
 import com.feng.dao.FileDao;
 import com.feng.dao.RSProcessor;
 import com.feng.entity.FileManage;
+import com.feng.entity.PubManage;
 
 public class FileDaoImpl extends BaseDao implements FileDao {
 
@@ -74,6 +76,29 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 		return (Vector<FileManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
 	}
 	
+	@Override
+	public Vector<FileManage> getFileLimit() {
+		String sql = "select * from file limit 8";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<FileManage> files = new Vector<FileManage>();
+				while (rs.next()) {	
+					int fid = rs.getInt("fid");
+					String fileName = rs.getString("fileName");
+					String path = rs.getString("path");
+					int downNum = rs.getInt("downNum");
+					String userName = rs.getString("userName");
+					FileManage file = new FileManage(fid,fileName,path,downNum,userName);
+					files.add(file);
+				}
+				return files;
+			}
+		};
+
+		return (Vector<FileManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
 	
 	@Override
 	public int delFileByFid(int fid) {
@@ -82,5 +107,53 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 		return this.executeUpdate(sql,params);
 	}
 	
+	
+	@Override
+    public List<FileManage> findFiles(int page, int count){
+		
+		String sql = "select * from file LIMIT ?,?";
+		Object[] params = { (page-1)*count,count };
+		
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<FileManage> files = new Vector<FileManage>();
+				while (rs.next()) {	
+					int fid = rs.getInt("fid");
+					String fileName = rs.getString("fileName");
+					String path = rs.getString("path");
+					int downNum = rs.getInt("downNum");
+					String userName = rs.getString("userName");
+					FileManage file = new FileManage(fid,fileName,path,downNum,userName);
+					files.add(file);
+				}
+				return files;
+			}
+		};
+
+		return (List<FileManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+       
+    
+    }
+
+	
+	@Override
+    public int count() {
+    	
+    	String sql = "select count(*) from file";
+		Object[] params = {};
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+		int count = 0;
+        if (rs.next()) {
+            count = rs.getInt(1);
+        }
+        return count;
+			}
+		};
+
+  
+        
+		return (int) this.executeQuery(getUsersByNameProcessor, sql, params);  
+    }
 	
 }

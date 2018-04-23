@@ -3,6 +3,7 @@ package com.feng.biz;
 import java.util.List;
 
 import com.feng.entity.FileManage;
+import com.feng.entity.Page;
 
 public interface FileBiz {
 	
@@ -13,4 +14,5 @@ public interface FileBiz {
 	
 	public List<Integer> delFileByFid(List<Integer> fids);
 	
+	public Page findPage(int page,int count);
 }

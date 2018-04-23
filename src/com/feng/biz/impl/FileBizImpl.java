@@ -10,6 +10,8 @@ import com.feng.biz.FileBiz;
 import com.feng.dao.FileDao;
 import com.feng.dao.impl.FileDaoImpl;
 import com.feng.entity.FileManage;
+import com.feng.entity.Page;
+import com.feng.entity.PubManage;
 
 public class FileBizImpl implements FileBiz {
 
@@ -42,5 +44,23 @@ public class FileBizImpl implements FileBiz {
 		}
 		return errors;
 	}
+	
+	@Override
+    public Page findPage(int page, int count) {	       	       
+            	List<FileManage> files = fileDaoImpl.findFiles(page, count);
+                System.out.println(files);
+                int totle = fileDaoImpl.count();
+                System.out.println(totle);
+                Page p = new Page();
+                p.setFiles(files);
+                p.setCurrentPage(page);
+                p.setCount(count);
+                p.setTotalCount(totle);
+                int totlePage = totle%count==0?totle/count:(totle/count)+1;
+                p.setTotalPage(totlePage);
+                return p;
+            
+       
+    }
 	
 }

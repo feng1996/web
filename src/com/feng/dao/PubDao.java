@@ -16,12 +16,23 @@ public interface PubDao {
 	public PubManage findPubByID(String pid);
 	public Vector<PubManage> getPub();
 	public Vector<PubManage> getPolicyPub();
+	public Vector<PubManage> getNewsPub();
+	public Vector<PubManage> getSydwzpPub();
+	public Vector<PubManage> getZczgksPub();
+	
+	public Vector<PubManage> getPolicyPubLimit();
+	public Vector<PubManage> getNewsPubLimit();
+	public Vector<PubManage> getSydwzpPubLimit();
+	public Vector<PubManage> getZczgksPubLimit();
+	public Vector<PubManage> getBsznsPubLimit();
+	
 	public int delPubByPid(int pid);
 	public int update(PubManage pub);
 	
-	public List<PubManage> findPubs(int page , int count);
+	public List<PubManage> findPolicyPubs(int page , int count);
+	public List<PubManage> findNewsPubs(int page , int count);
 
-    public int count();
+    public int count(String pubType);
     
     public Vector<PubManage> getPolicySearch(String sw);
     public Vector<PubManage> getNewsSearch(String sw);

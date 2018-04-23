@@ -3,12 +3,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>网站首页</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/Home.css" />
 		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
@@ -27,20 +28,20 @@
 						<div class="col-md-4 column">
 							<!--搜索栏-->
 							<form method="post" action="Search">
-							<div class="input-group" id="search">
-                    			<input type="text" class="form-control" name="searchWord">
-                   				<span class="input-group-btn">
+								<div class="input-group" id="search">
+									<input type="text" class="form-control" name="searchWord">
+									<span class="input-group-btn">
                    	    			<button class="btn btn-default" type="submit">
                         				<span class="glyphicon glyphicon-search"></span>
-                       				</button>
-                   			 	</span>
-                			</div> 
-                			</form>
+									</button>
+									</span>
+								</div>
+							</form>
 						</div>
 					</div>
 					<!--导航栏-->
 					<ul class="nav nav-pills" style="background: rgba(100,100,100,0.2);">
-						<li  class="active">
+						<li class="active">
 							<a href="Home.jsp">首页</a>
 						</li>
 						<li>
@@ -85,7 +86,7 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item">
-								<img alt="" src="img/p1.jpg" style="width: 800px;height: 334px;"/>
+								<img alt="" src="img/p1.jpg" style="width: 800px;height: 334px;" />
 								<div class="carousel-caption">
 									<h4>
 										市人社局机关党支部利用党员活动日上好新年廉政教育第一课
@@ -93,7 +94,7 @@
 								</div>
 							</div>
 							<div class="item active">
-								<img alt="" src="img/p2.jpg" style="width: 800px;height: 334px;"/>
+								<img alt="" src="img/p2.jpg" style="width: 800px;height: 334px;" />
 								<div class="carousel-caption">
 									<h4>
 										市人社局召开学习贯彻党的十九大精神第三次中心组学习（扩大）会
@@ -101,7 +102,7 @@
 								</div>
 							</div>
 							<div class="item">
-								<img alt="" src="img/p3.jpg" style="width: 800px;height: 334px;"/>
+								<img alt="" src="img/p3.jpg" style="width: 800px;height: 334px;" />
 								<div class="carousel-caption">
 									<h4>
 										市人社局开展党建述职测评活动
@@ -118,7 +119,7 @@
 					<div class="tabbable" id="tabs-396134">
 						<ul class="nav nav-tabs">
 							<li>
-								<a href="#panel-816093" data-toggle="tab">通知公告</a>
+								<a href="#panel-816093" data-toggle="tab">新闻中心</a>
 							</li>
 							<li class="active">
 								<a href="#panel-565510" data-toggle="tab">相关文件</a>
@@ -127,58 +128,23 @@
 						<div class="tab-content">
 							<div class="tab-pane" id="panel-816093">
 								<ul>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
+									<c:forEach var="news" items="${news}">
+										<li>
+											<a href="pubDetails.jsp">${news.pubTitle }</a>
+										</li>
+									</c:forEach>
 								</ul>
 							</div>
 							<div class="tab-pane active" id="panel-565510">
 								<ul>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
+									<c:forEach var="me" items="${files}">
+										<c:url value="DownLoad" var="downurl">
+											<c:param name="fileName" value="${me.fileName}"></c:param>
+										</c:url>
+										${me.fileName}
+										<a href="${downurl}">下载</a>
+										<br />
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
@@ -201,30 +167,11 @@
 						</div>
 					</div>
 					<ul>
-						<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
+						<c:forEach var="policys" items="${policys}">
+							<li>
+								<a href="pubDetails.jsp">${policys.pubTitle }</a>
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 				<div class="col-md-4 column">
@@ -232,7 +179,7 @@
 						<div class="col-md-8 column">
 							<div class="stitle">
 								<h3>
-									领导讲话
+									事业单位招聘
 								</h3>
 							</div>
 						</div>
@@ -242,30 +189,11 @@
 						</div>
 					</div>
 					<ul>
-						<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
+						<c:forEach var="sydwzps" items="${sydwzps}">
+							<li>
+								<a href="pubDetails.jsp">${sydwzps.pubTitle }</a>
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 				<div class="col-md-4 column">
@@ -273,7 +201,7 @@
 						<div class="col-md-8 column">
 							<div class="stitle">
 								<h3>
-									区乡动态
+									职称资格考试
 								</h3>
 							</div>
 						</div>
@@ -283,41 +211,17 @@
 						</div>
 					</div>
 					<ul>
-						<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
-									<li>
-										<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-									</li>
+						<c:forEach var="zczgkss" items="${zczgkss}">
+							<li>
+								<a href="pubDetails.jsp">${zczgkss.pubTitle }</a>
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
 
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-					<!--<div class="row clearfix">
-						<div class="col-md-12 column" style="border: solid 1px #CCCCCC;">
-							
-						</div>
-					</div>-->
 					<div class="row clearfix">
 						<div class="col-md-12 column">
 							<div class="row clearfix">
@@ -327,55 +231,48 @@
 									</h3>
 									<span class="glyphicon glyphicon-hand-right" style="font-size: 45px;"></span>
 								</div>
-								<div class="col-md-6 column">
-									<div class="row clearfix">
-										<div class="col-md-4 column">
-											<a href="#" class="btn btn-info btn-lg" style="width: 180px;">
-												<span class="glyphicon glyphicon-eye-open" style="font-size: 45px;"></span>
-												<div style="font-size: 16px;text-align: center;">
-													社保查询
-												</div>
-											</a>
+								<div class="col-md-2 column">
+									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+										<span class="glyphicon glyphicon-eye-open" style="font-size: 45px;"></span>
+										<div style="font-size: 16px;text-align: center;">
+											社保查询
+										</div>
+									</a>
 
-										</div>
-										<div class="col-md-4 column">
-											<a href="#" class="btn btn-info btn-lg" style="width: 180px;">
-												<span class="glyphicon glyphicon-pencil" style="font-size: 45px;"></span>
-												<div>
-													考试成绩查询
-												</div>
-											</a>
-										</div>
-										<div class="col-md-4 column">
-											<a href="#" class="btn btn-info btn-lg" style="width: 180px;">
-												<span class="glyphicon glyphicon-education" style="font-size: 45px;"></span>
-												<div style="font-size: 16px;text-align: center;">
-													高校毕业生档案查询
-												</div>
-											</a>
-										</div>
-									</div>
 								</div>
-								<div class="col-md-4 column">
-									<div class="row clearfix">
-										<div class="col-md-6 column">
-											<a href="#" class="btn btn-info btn-lg" style="width: 180px;">
-												<span class="glyphicon glyphicon-book" style="font-size: 45px;"></span>
-												<div style="font-size: 16px;text-align: center;">
-													职业资格证书查询
-												</div>
-											</a>
+								<div class="col-md-2 column">
+									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+										<span class="glyphicon glyphicon-pencil" style="font-size: 45px;"></span>
+										<div style="font-size: 16px;text-align: center;">
+											考试成绩查询
 										</div>
-										<div class="col-md-6 column">
-											<a href="#" class="btn btn-info btn-lg" style="width: 180px;">
-												<span class="glyphicon glyphicon-heart" style="font-size: 45px;"></span>
-												<div style="font-size: 16px;text-align: center;">
-													医保查询
-												</div>
-											</a>
-										</div>
-									</div>
+									</a>
 								</div>
+								<div class="col-md-2 column">
+									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+										<span class="glyphicon glyphicon-education" style="font-size: 45px;"></span>
+										<div style="font-size: 16px;text-align: center;">
+											高校毕业生档案查询
+										</div>
+									</a>
+								</div>
+								<div class="col-md-2 column">
+									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+										<span class="glyphicon glyphicon-book" style="font-size: 45px;"></span>
+										<div style="font-size: 16px;text-align: center;">
+											职业资格证书查询
+										</div>
+									</a>
+								</div>
+								<div class="col-md-2 column">
+									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+										<span class="glyphicon glyphicon-heart" style="font-size: 45px;"></span>
+										<div style="font-size: 16px;text-align: center;">
+											医保查询
+										</div>
+									</a>
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -390,90 +287,22 @@
 								</div>
 								<div class="col-md-5 column">
 									<ul>
+										<c:forEach var="news" items="${news}">
 										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
+											<span class="data-span">${news.pubTime }</span>
+											<a href="pubDetails.jsp">${news.pubTitle }</a>
 										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
+										</c:forEach>
 									</ul>
 								</div>
 								<div class="col-md-5 column">
 									<ul>
+										<c:forEach var="bszns" items="${bszns}">
 										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
+											<span class="data-span">${bszns.pubTime }</span>
+											<a href="pubDetails.jsp">${bszns.pubTitle }</a>
 										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
-										<li>
-											<span class="data-span">2018/1/23</span>
-											<a href="">通川区就业扶贫放“大招” 四类人员可获交通补贴</a>
-										
-										</li>
+										</c:forEach>
 									</ul>
 								</div>
 							</div>
@@ -534,7 +363,9 @@
 				</div>
 			</div>
 			<footer>
-				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲 <a href="login.jsp">管理员登录</a></p>		
+				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲
+					<a href="login.jsp">管理员登录</a>
+				</p>
 			</footer>
 		</div>
 

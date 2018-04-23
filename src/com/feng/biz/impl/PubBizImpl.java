@@ -52,10 +52,28 @@ public class PubBizImpl implements PubBiz {
 	}
 	
 	 @Override
-	    public Page findPage(int page, int count) {	       	       
-	            	List<PubManage> pubs = pubDaoImpl.findPubs(page, count);
+	    public Page findPolicyPage(int page, int count,String pubType) {	       	       
+	            	List<PubManage> pubs = pubDaoImpl.findPolicyPubs(page, count);
 	                System.out.println(pubs);
-	                int totle = pubDaoImpl.count();
+	                int totle = pubDaoImpl.count(pubType);
+	                System.out.println(totle);
+	                Page p = new Page();
+	                p.setPubs(pubs);
+	                p.setCurrentPage(page);
+	                p.setCount(count);
+	                p.setTotalCount(totle);
+	                int totlePage = totle%count==0?totle/count:(totle/count)+1;
+	                p.setTotalPage(totlePage);
+	                return p;
+	            
+	       
+	    }
+	 
+	 @Override
+	    public Page findNewsPage(int page, int count,String pubType) {	       	       
+	            	List<PubManage> pubs = pubDaoImpl.findNewsPubs(page, count);
+	                System.out.println(pubs);
+	                int totle = pubDaoImpl.count(pubType);
 	                System.out.println(totle);
 	                Page p = new Page();
 	                p.setPubs(pubs);

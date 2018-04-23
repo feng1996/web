@@ -16,5 +16,7 @@ public interface PubBiz {
 	
 	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent, int pid);
 	
-	 public Page findPage(int page,int count);
+    public Page findPolicyPage(int page,int count,String pubType);
+    
+    public Page findNewsPage(int page,int count,String pubType);
 }
