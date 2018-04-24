@@ -38,31 +38,22 @@
 				</ul>
 			</div>
 			<div class="col-md-10 column">
+			<div>
+							尊敬的 ${name},您好！
+							<a href="ShowHome">返回首页</a>
+							
+						</div>
 				<div class="tab-content">
 					<div class="tab-pane active lbox">
 
 
-						<div class="function">
-							<label for="">起始时间：</label> <input class='mydatepicker2'
-								type='text' /> <label for="">截止时间:</label> <input
-								class='mydatepicker2' type='text' />
-							<button type="button" class="btn btn-primary">编辑信息正文</button>
-							<button type="button" class="btn btn-primary">上传图片</button>
-							<button type="button" class="btn btn-primary">导出Excel</button>
-						</div>
-						<div class="func-table">
+						
+						
 						
 							<div class="input-group">
 								
 									<button class="btn btn-success" data-toggle="modal" data-target="#publishModal">新加</button>																									
-									<span class="input-group-btn">
-										<button class="btn btn-default" type="button">清除</button>
-									</span> <input type="text" class="form-control"
-										placeholder="全文搜索内容..."> <span class="input-group-btn">
-										<button class="btn btn-default" type="button">
-											<span class="glyphicon glyphicon-search"></span>搜索
-										</button>
-									</span>
+									
 							</div>
 							<div class="edit-content alltable">
 								<form action="DeletePub" method="POST">
@@ -130,7 +121,7 @@
 														<label class="col-md-2 control-label">发布人：</label>
 														<div class="col-md-10">
 															<input name="pubUser" type="text" class="form-control"
-																placeholder="">
+																placeholder="${name}">
 														</div>
 													</div>
 													<div class="form-group">
@@ -164,29 +155,13 @@
 								</div>															
 							</div>
 							
-						</div>
+						
 
 					</div>
-					<div class="tab-pane lbox">
-						<div class="function">
-							<label for="">起始时间：</label> <input class='mydatepicker2'
-								type='text' /> <label for="">截止时间:</label> <input
-								class='mydatepicker2' type='text' />
-							<button type="button" class="btn btn-primary">编辑信息正文</button>
-							<button type="button" class="btn btn-primary">上传图片</button>
-							<button type="button" class="btn btn-primary">导出Excel</button>
-						</div>
-						<div class="func-table">
+					<div class="tab-pane lbox">			
+				
 							<div class="input-group">
-								<button class="btn btn-success" data-toggle="modal" data-target="#memberModal">新加</button>
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">清除</button>
-								</span> <input type="text" class="form-control" placeholder="全文搜索内容...">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">
-										<span class="glyphicon glyphicon-search"></span>搜索
-									</button>
-								</span>
+								<button class="btn btn-success" data-toggle="modal" data-target="#memberModal">新加</button>										
 							</div>
 							<div class="edit-content alltable">
 								<form action="DeleteMember" method="POST">
@@ -330,29 +305,14 @@
 									</div>
 									<!-- /.modal -->
 								</div>	
-							</div>
-						</div>
+							</div>						
 					</div>
 					<div class="tab-pane lbox">
-						<div class="function">
-							<label for="">起始时间：</label> <input class='mydatepicker2'
-								type='text' /> <label for="">截止时间:</label> <input
-								class='mydatepicker2' type='text' />
-							<button type="button" class="btn btn-primary">编辑信息正文</button>
-							<button type="button" class="btn btn-primary">上传图片</button>
-							<button type="button" class="btn btn-primary">导出Excel</button>
-						</div>
-						<div class="func-table">
+						
+						
 							<div class="input-group">
 								<button class="btn btn-success" data-toggle="modal" data-target="#userModal">新加</button>
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">清除</button>
-								</span> <input type="text" class="form-control" placeholder="全文搜索内容...">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">
-										<span class="glyphicon glyphicon-search"></span>搜索
-									</button>
-								</span>
+								
 							</div>
 							
 							<div class="edit-content alltable">
@@ -420,30 +380,16 @@
 								</div>															
 							</div>
 							
-						</div>
+						
 
 					</div>
 														
 					<div class="tab-pane lbox">
-						<div class="function">
-							<label for="">起始时间：</label> <input class='mydatepicker2'
-								type='text' /> <label for="">截止时间:</label> <input
-								class='mydatepicker2' type='text' />
-							<button type="button" class="btn btn-primary">编辑信息正文</button>
-							<button type="button" class="btn btn-primary">上传图片</button>
-							<button type="button" class="btn btn-primary">导出Excel</button>
-						</div>
-						<div class="func-table">
+						
+						
 							<div class="input-group">
 								<button class="btn btn-success" data-toggle="modal" data-target="#linkModal">新加</button>
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">清除</button>
-								</span> <input type="text" class="form-control" placeholder="全文搜索内容...">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">
-										<span class="glyphicon glyphicon-search"></span>搜索
-									</button>
-								</span>
+								
 							</div>
 							<div class="edit-content alltable">
 								<form action="DeleteLink" method="POST">
@@ -528,30 +474,15 @@
 								</div>															
 							</div>
 							
-						</div>
+				
 
 					</div>		
 																	
 					<div class="tab-pane lbox">
-						<div class="function">
-							<label for="">起始时间：</label> <input class='mydatepicker2'
-								type='text' /> <label for="">截止时间:</label> <input
-								class='mydatepicker2' type='text' />
-							<button type="button" class="btn btn-primary">编辑信息正文</button>
-							<button type="button" class="btn btn-primary">上传图片</button>
-							<button type="button" class="btn btn-primary">导出Excel</button>
-						</div>
-						<div class="func-table">
+						
+						
 							<div class="input-group">
-								<button class="btn btn-success" data-toggle="modal" data-target="#uploadModal">新加</button>
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">清除</button>
-								</span> <input type="text" class="form-control" placeholder="全文搜索内容...">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">
-										<span class="glyphicon glyphicon-search"></span>搜索
-									</button>
-								</span>
+								<button class="btn btn-success" data-toggle="modal" data-target="#uploadModal">新加</button>								
 							</div>
 							
 							<div class="edit-content alltable">
@@ -612,12 +543,12 @@
 
 
 
-	</div>
+
 
 	<footer>
 		<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲</p>
 	</footer>
-	</div>
+
 
 	<script type="text/javascript">
 	window.onload=function(){

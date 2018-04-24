@@ -57,10 +57,10 @@
 						<li>
 							<a href="ShowService">服务大厅</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="ShowMember">会员中心</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="ShowDownload">资料下载</a>
 						</li>
 						<li>
@@ -98,9 +98,13 @@
 								</div>
 								<div class="panel-body">
 									<ul class="NewsList">
-										<c:forEach var="results" items="${searchs}">																										
+										<c:forEach var="results" items="${searchs}">	
+										<c:url value="DownLoad" var="downurl">
+											<c:param name="fileName" value="${results.fileName}"></c:param>
+											<c:param name="fid" value="${results.fid}"></c:param>
+										</c:url>																									
 										<li>											
-											<a href="pubDetails.jsp">${results.memberName }</a>
+											<a href="${downurl}">${results.fileName }</a>
 										</li>
 							
 										</c:forEach>										

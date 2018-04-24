@@ -17,8 +17,11 @@ public interface PubDao {
 	public Vector<PubManage> getPub();
 	public Vector<PubManage> getPolicyPub();
 	public Vector<PubManage> getNewsPub();
+	public Vector<PubManage> getBsznPub();
 	public Vector<PubManage> getSydwzpPub();
 	public Vector<PubManage> getZczgksPub();
+	public Vector<PubManage> getCjwtPub();
+	public Vector<PubManage> getJbtsPub();
 	
 	public Vector<PubManage> getPolicyPubLimit();
 	public Vector<PubManage> getNewsPubLimit();

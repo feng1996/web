@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	xianshicontent
+	标题：${pub.pubTitle}
+	内容：${pub.pubContent}
+	
 </body>
 </html>

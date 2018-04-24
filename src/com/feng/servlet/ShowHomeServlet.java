@@ -34,8 +34,8 @@ public class ShowHomeServlet extends HttpServlet {
 			Vector<PubManage> sydwzps = pubDaoImpl.getSydwzpPubLimit();
 			req.setAttribute("sydwzps", sydwzps);
 			
-			Vector<PubManage> zgzckss = pubDaoImpl.getZczgksPubLimit();
-			req.setAttribute("zgzckss", zgzckss);
+			Vector<PubManage> zczhkss = pubDaoImpl.getZczgksPubLimit();
+			req.setAttribute("zczhkss", zczhkss);
 			
 			Vector<PubManage> bszns = pubDaoImpl.getBsznsPubLimit();
 			req.setAttribute("bszns", bszns);

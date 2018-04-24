@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.feng.biz.PubBiz;
 import com.feng.biz.impl.PubBizImpl;
@@ -28,7 +29,8 @@ public class InsertPubServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String pubTitle = request.getParameter("pubTitle");
 		String pubType = request.getParameter("pubType");
-		String pubUser = request.getParameter("pubUser");
+		HttpSession session = request.getSession();
+		String pubUser = (String)session.getAttribute("name");
 		String pubTime = request.getParameter("pubTime");
 		String pubContent = request.getParameter("pubContent");
 		PubBiz pubBiz = new PubBizImpl();

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Vector;
 
 import com.feng.entity.FileManage;
+import com.feng.entity.Member;
 import com.feng.entity.PubManage;
 
 public interface FileDao {
@@ -22,4 +23,10 @@ public interface FileDao {
 	public int delFileByFid(int fid);
 	public List<FileManage> findFiles(int page , int count);
 	public int count();
+	
+	public Vector<FileManage> getFileSearch(String sw);
+	
+	public int updateDownloadByFid(String fid);
+	
+	public Vector<FileManage> getHotFile();
 }

@@ -126,6 +126,30 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	}
 	
 	@Override
+	public Vector<PubManage> getBsznPub() {
+		String sql = "select * from pub where pubType = '办事指南'";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<PubManage> pubs = new Vector<PubManage>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					pubs.add(pub);
+				}
+				return pubs;
+			}
+		};
+
+		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
+	@Override
 	public Vector<PubManage> getSydwzpPub() {
 		String sql = "select * from pub where pubType = '事业单位招聘'";
 		Object[] params = { };
@@ -173,7 +197,53 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
 	}
 	
+	@Override
+	public Vector<PubManage> getCjwtPub() {
+		String sql = "select * from pub where pubType = '常见问题'";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<PubManage> pubs = new Vector<PubManage>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					pubs.add(pub);
+				}
+				return pubs;
+			}
+		};
+
+		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
 	
+	@Override
+	public Vector<PubManage> getJbtsPub() {
+		String sql = "select * from pub where pubType = '举报投诉'";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<PubManage> pubs = new Vector<PubManage>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					pubs.add(pub);
+				}
+				return pubs;
+			}
+		};
+
+		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
 	
 	@Override
 	public Vector<PubManage> getPolicyPubLimit() {
@@ -438,7 +508,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
     
     @Override
     public Vector<PubManage> getHallSearch(String sw){
-    	String sql = "select * from pub where pubType = '办事指南' or pubType = '事业单位招聘' or pubType = '职称资格考试' or pubType = '常见问题' or pubType = '举报投诉' and pubTitle like ?";
+    	String sql = "select * from pub where (pubType = '办事指南' or pubType = '事业单位招聘' or pubType = '职称资格考试' or pubType = '常见问题' or pubType = '举报投诉') and pubTitle like ?";
 		Object[] params = {'%'+sw+'%'};
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {

@@ -128,7 +128,7 @@
 				<label class="col-md-2 control-label">发布人：</label>
 				<div class="col-md-10">
 					<input name="pubUser" type="text" class="form-control"
-						value="${pub.pubUser }">
+						value="${pub.pubUser }" placeholder="${name}">
 				</div>
 			</div>
 			<div class="form-group">

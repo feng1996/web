@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>MyGraduate</display-name>
   <welcome-file-list>
-  	<welcome-file>ShowHome</welcome-file>
+  	<welcome-file>HotFile</welcome-file>
     <welcome-file>Home.jsp</welcome-file>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
@@ -291,6 +291,14 @@
     <servlet-name>LinkSearchServlet</servlet-name>
     <url-pattern>/LinkSearch</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>FileSearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.FileSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileSearchServlet</servlet-name>
+    <url-pattern>/FileSearch</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>ShowHomeServlet</servlet-name>
     <servlet-class>com.feng.servlet.ShowHomeServlet</servlet-class>
@@ -298,6 +306,22 @@
   <servlet-mapping>
     <servlet-name>ShowHomeServlet</servlet-name>
     <url-pattern>/ShowHome</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>HotFileServlet</servlet-name>
+    <servlet-class>com.feng.servlet.HotFileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HotFileServlet</servlet-name>
+    <url-pattern>/HotFile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PubDetailsServlet</servlet-name>
+    <servlet-class>com.feng.servlet.PubDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PubDetailsServlet</servlet-name>
+    <url-pattern>/PubDetails</url-pattern>
   </servlet-mapping>
   <resource-ref>
     <res-ref-name>jdbc/myweb</res-ref-name>

@@ -41,7 +41,7 @@
 					<!--导航栏-->
 					<ul class="nav nav-pills" style="background: rgba(100,100,100,0.2);">
 						<li>
-							<a href="Home.jsp">首页</a>
+							<a href="ShowHome">首页</a>
 						</li>
 						<li>
 							<a href="Introduction.jsp">协会简介</a>
@@ -76,16 +76,15 @@
 						<div class="col-md-3 column">
 							<div class="list-group">
 								<a class="list-group-item list-group-item-danger">TOP10<span class="glyphicon glyphicon-fire"></span><span class="glyphicon glyphicon-fire"></span><span class="glyphicon glyphicon-fire"></span>热门点击</a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源 </a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源</a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源</a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源 </a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源</a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源</a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源 </a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源</a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源</a>
-								<a href="#" class="list-group-item list-group-item-success">达州市人力资源 </a>
+								<c:forEach var="me" items="${hotFiles}">
+										<c:url value="DownLoad" var="downurl">
+											<c:param name="fileName" value="${me.fileName}"></c:param>
+											<c:param name="fid" value="${me.fid}"></c:param>
+										</c:url>
+										
+										<a href="${downurl}" class="list-group-item list-group-item-success">${me.fileName}(下载量：${me.downNum})</a>
+									
+								</c:forEach>
 							</div>
 						</div>
 						<div class="col-md-9 column">
@@ -97,11 +96,14 @@
 								</div>
 								<div class="panel-body">
 									<ul class="NewsList">
-										<c:forEach var="shownews" items="${page.pubs}">														
+										<c:forEach var="shownews" items="${page.pubs}">	
+										<c:url value="PubDetails" var="pubInfo">
+											<c:param name="pid" value="${shownews.pid}"></c:param>											
+										</c:url>													
 										<c:if test="${shownews.pubType == '新闻中心' }">												
 										<li>
 											<span class="data-span">${shownews.pubTime }</span>
-											<a href="pubDetails.jsp">${shownews.pubTitle }</a>
+											<a href="${pubInfo}">${shownews.pubTitle }</a>
 										</li>
 										</c:if>
 										</c:forEach>										

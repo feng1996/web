@@ -9,6 +9,7 @@ import com.feng.dao.BaseDao;
 import com.feng.dao.FileDao;
 import com.feng.dao.RSProcessor;
 import com.feng.entity.FileManage;
+import com.feng.entity.Member;
 import com.feng.entity.PubManage;
 
 public class FileDaoImpl extends BaseDao implements FileDao {
@@ -155,5 +156,61 @@ public class FileDaoImpl extends BaseDao implements FileDao {
         
 		return (int) this.executeQuery(getUsersByNameProcessor, sql, params);  
     }
+	
+	@Override
+	public Vector<FileManage> getFileSearch(String sw) {
+		String sql = "select * from file where fileName like ?";
+		Object[] params = {'%'+sw+'%' };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<FileManage> files = new Vector<FileManage>();
+				while (rs.next()) {	
+					int fid = rs.getInt("fid");
+					String fileName = rs.getString("fileName");
+					String path = rs.getString("path");
+					int downNum = rs.getInt("downNum");
+					String userName = rs.getString("userName");
+					FileManage file = new FileManage(fid,fileName,path,downNum,userName);
+					files.add(file);
+				}
+				return files;
+			}
+		};
+
+		return (Vector<FileManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
+	@Override
+	public int updateDownloadByFid(String fid) {
+		String sql = "update file \r\n" + 
+				"set downNum = downNum+1\r\n" + 
+				"where fid = ?";
+		Object[] params = { fid };
+		return this.executeUpdate(sql, params);
+	}
+	
+	@Override
+	public Vector<FileManage> getHotFile() {
+		String sql = "select * from file order by downNum desc limit 5";
+		Object[] params = { };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				Vector<FileManage> files = new Vector<FileManage>();
+				while (rs.next()) {
+					
+					int fid = rs.getInt("fid");
+					String fileName = rs.getString("fileName");
+					String path = rs.getString("path");
+					int downNum = rs.getInt("downNum");
+					String userName = rs.getString("userName");
+					FileManage file = new FileManage(fid,fileName,path,downNum,userName);
+					files.add(file);
+				}
+				return files;
+			}
+		};
+
+		return (Vector<FileManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
 	
 }

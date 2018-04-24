@@ -26,23 +26,13 @@
 							<img alt="" src="img/header-logo2.png" />
 						</div>
 						<div class="col-md-4 column">
-							<!--搜索栏-->
-							<form method="post" action="Search">
-								<div class="input-group" id="search">
-									<input type="text" class="form-control" name="searchWord">
-									<span class="input-group-btn">
-                   	    			<button class="btn btn-default" type="submit">
-                        				<span class="glyphicon glyphicon-search"></span>
-									</button>
-									</span>
-								</div>
-							</form>
+							
 						</div>
 					</div>
 					<!--导航栏-->
 					<ul class="nav nav-pills" style="background: rgba(100,100,100,0.2);">
 						<li class="active">
-							<a href="Home.jsp">首页</a>
+							<a href="ShowHome">首页</a>
 						</li>
 						<li>
 							<a href="Introduction.jsp">协会简介</a>
@@ -127,7 +117,7 @@
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane" id="panel-816093">
-								<ul>
+								<ul class="ahidden">
 									<c:forEach var="news" items="${news}">
 										<li>
 											<a href="pubDetails.jsp">${news.pubTitle }</a>
@@ -136,16 +126,19 @@
 								</ul>
 							</div>
 							<div class="tab-pane active" id="panel-565510">
-								<ul>
+								<ul class="ahidden">
+								
 									<c:forEach var="me" items="${files}">
 										<c:url value="DownLoad" var="downurl">
 											<c:param name="fileName" value="${me.fileName}"></c:param>
+											<c:param name="fid" value="${me.fid}"></c:param>
 										</c:url>
-										${me.fileName}
-										<a href="${downurl}">下载</a>
-										<br />
+										<li>${me.fileName}
+										<a href="${downurl}">下载</a></li>
+									
 									</c:forEach>
 								</ul>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -163,10 +156,10 @@
 						</div>
 						<div class="col-md-4 column" style="margin-top: 25px;">
 							<!--<button type="button" class="btn btn-default">更多</button>-->
-							<a href="">更多<span class="glyphicon glyphicon-play-circle"></span></a>
+							<a href="ShowPolicy">更多<span class="glyphicon glyphicon-play-circle"></span></a>
 						</div>
 					</div>
-					<ul>
+					<ul class="ahidden">
 						<c:forEach var="policys" items="${policys}">
 							<li>
 								<a href="pubDetails.jsp">${policys.pubTitle }</a>
@@ -179,16 +172,16 @@
 						<div class="col-md-8 column">
 							<div class="stitle">
 								<h3>
-									事业单位招聘
+									招聘信息
 								</h3>
 							</div>
 						</div>
 						<div class="col-md-4 column" style="margin-top: 25px;">
 							<!--<button type="button" class="btn btn-default">更多</button>-->
-							<a href="">更多<span class="glyphicon glyphicon-play-circle"></span></a>
+							<a href="ShowService">更多<span class="glyphicon glyphicon-play-circle"></span></a>
 						</div>
 					</div>
-					<ul>
+					<ul class="ahidden">
 						<c:forEach var="sydwzps" items="${sydwzps}">
 							<li>
 								<a href="pubDetails.jsp">${sydwzps.pubTitle }</a>
@@ -201,19 +194,19 @@
 						<div class="col-md-8 column">
 							<div class="stitle">
 								<h3>
-									职称资格考试
+									相关考试
 								</h3>
 							</div>
 						</div>
 						<div class="col-md-4 column" style="margin-top: 25px;">
 							<!--<button type="button" class="btn btn-default">更多</button>-->
-							<a href="">更多<span class="glyphicon glyphicon-play-circle"></span></a>
+							<a href="ShowService">更多<span class="glyphicon glyphicon-play-circle"></span></a>
 						</div>
 					</div>
-					<ul>
-						<c:forEach var="zczgkss" items="${zczgkss}">
+					<ul class="ahidden">
+						<c:forEach var="zczhkss" items="${zczhkss}">
 							<li>
-								<a href="pubDetails.jsp">${zczgkss.pubTitle }</a>
+								<a href="pubDetails.jsp">${zczhkss.pubTitle }</a>
 							</li>
 						</c:forEach>
 					</ul>
@@ -252,7 +245,7 @@
 									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
 										<span class="glyphicon glyphicon-education" style="font-size: 45px;"></span>
 										<div style="font-size: 16px;text-align: center;">
-											高校毕业生档案查询
+											高校档案查询
 										</div>
 									</a>
 								</div>
@@ -260,7 +253,7 @@
 									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
 										<span class="glyphicon glyphicon-book" style="font-size: 45px;"></span>
 										<div style="font-size: 16px;text-align: center;">
-											职业资格证书查询
+											资格证书查询
 										</div>
 									</a>
 								</div>
@@ -286,7 +279,7 @@
 									<span class="glyphicon glyphicon-hand-right" style="font-size: 45px;"></span>
 								</div>
 								<div class="col-md-5 column">
-									<ul>
+									<ul class="ahidden">
 										<c:forEach var="news" items="${news}">
 										<li>
 											<span class="data-span">${news.pubTime }</span>
@@ -296,7 +289,7 @@
 									</ul>
 								</div>
 								<div class="col-md-5 column">
-									<ul>
+									<ul class="ahidden">
 										<c:forEach var="bszns" items="${bszns}">
 										<li>
 											<span class="data-span">${bszns.pubTime }</span>
@@ -311,57 +304,42 @@
 				</div>
 			</div>
 			<div class="row clearfix" style="margin-bottom: 10px;">
-				<div class="col-md-12 column">
-					<div class="row clearfix">
-						<div class="col-md-6 column">
+				<div class="col-md-12 column">					
 							<div class="row clearfix">
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-6 column">
-							<div class="row clearfix">
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-							</div>
-						</div>
-					</div>
+							</div>															
 				</div>
 			</div>
 			<div class="row clearfix" style="margin-bottom: 10px;">
-				<div class="col-md-12 column">
-					<div class="row clearfix">
-						<div class="col-md-6 column">
+				<div class="col-md-12 column">					
 							<div class="row clearfix">
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-6 column">
-							<div class="row clearfix">
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-								<div class="col-md-6 column">
-									<img alt="" src="img/y3.png" />
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
-							</div>
-						</div>
-					</div>
+							</div>															
 				</div>
 			</div>
+			
 			<footer>
 				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲
 					<a href="login.jsp">管理员登录</a>

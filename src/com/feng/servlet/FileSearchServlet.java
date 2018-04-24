@@ -12,21 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.feng.biz.PubBiz;
 import com.feng.biz.impl.LinkBizImpl;
 import com.feng.biz.impl.PubBizImpl;
+import com.feng.dao.impl.FileDaoImpl;
 import com.feng.dao.impl.LinkDaoImpl;
+import com.feng.dao.impl.MemberDaoImpl;
 import com.feng.dao.impl.PubDaoImpl;
+import com.feng.entity.FileManage;
 import com.feng.entity.Link;
+import com.feng.entity.Member;
+import com.feng.entity.Page;
 import com.feng.entity.PubManage;
 
-public class ShowServiceServlet extends HttpServlet {
+public class FileSearchServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
 
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			req.setCharacterEncoding("UTF-8");
-			PubDaoImpl pubDaoImpl = new PubDaoImpl();
-			Vector<PubManage> pubs = pubDaoImpl.getPub();
-			req.setAttribute("pubs", pubs);
-
-			req.getRequestDispatcher("ServiceHall.jsp").forward(req, resp);
+			String sw = req.getParameter("searchWord");
+			System.out.println("searchWord"+sw);
+			FileDaoImpl fileDaoImpl = new FileDaoImpl();
+			Vector<FileManage> searchs = fileDaoImpl.getFileSearch(sw);
+			req.setAttribute("searchs", searchs);
+			
+			
+			req.getRequestDispatcher("searchFile.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

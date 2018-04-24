@@ -25,6 +25,7 @@ public class DownLoadServlet extends HttpServlet {
 		String path = req.getParameter("path");
 		String url = req.getParameter("url");
 		
+		
 		if(url == null) {
 			// 下载文件
 			url = this.getServletContext().getRealPath("/WEB-INF/Drive/"+path+"/"+fileName);
@@ -32,8 +33,13 @@ public class DownLoadServlet extends HttpServlet {
 			System.out.println("下载文件");
 			
 			url = this.getServletContext().getRealPath("/WEB-INF/Drive/"+url+"/"+fileName);
+			
 
 		}
+		String fid = req.getParameter("fid");
+		FileDaoImpl fileDaoImpl = new FileDaoImpl();
+		fileDaoImpl.updateDownloadByFid(fid);
+		System.out.println("fid:" + fid);
 		System.out.println("url:" + url);
 		File file = new File(url);
 //		if(!file.exists()) {
