@@ -75,8 +75,7 @@
 					<div class="row clearfix">
 						<div class="col-md-3 column">
 							<div class="list-group">
-								<a class="list-group-item list-group-item-danger">TOP10<span class="glyphicon glyphicon-fire"></span><span class="glyphicon glyphicon-fire"></span><span class="glyphicon glyphicon-fire"></span>热门点击
-								</a>
+								<a class="list-group-item list-group-item-danger">TOP5<span class="glyphicon glyphicon-fire"></span><span class="glyphicon glyphicon-fire"></span><span class="glyphicon glyphicon-fire"></span>热门下载</a>
 								<c:forEach var="me" items="${hotFiles}">
 										<c:url value="DownLoad" var="downurl">
 											<c:param name="fileName" value="${me.fileName}"></c:param>

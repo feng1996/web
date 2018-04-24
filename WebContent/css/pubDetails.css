@@ -1,0 +1,42 @@
+.newsbox .content {
+    width: 100%;
+    font-size: 14px;
+    float: left;
+    line-height: 25px;
+    padding-top: 20px;
+    overflow: hidden;
+}
+.newsbox h1 {
+    width: 100%;
+    float: left;
+    font-size: 24px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-bottom: 20px;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.h10 {
+    height: 10px;
+    width: 100%;
+    line-height: 1px;
+    clear: both;
+}
+.newsbox .date {
+    width: 100%;
+    line-height: 25px;
+    text-align: center;
+    border-top: #cccccc 1px solid;
+    border-bottom: #cccccc 1px solid;
+    color: #666666;
+    float: left;
+}

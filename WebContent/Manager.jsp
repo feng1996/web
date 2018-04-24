@@ -14,8 +14,6 @@
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"
 	charset="utf-8"></script>
 <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/dcalendar.picker.js" type="text/javascript"
-	charset="utf-8"></script>
 <script src="js/bootstable.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/fileinput.min.js" type="text/javascript"></script>
 <script src="js/drive.js" type="text/javascript"></script>
@@ -39,7 +37,7 @@
 			</div>
 			<div class="col-md-10 column">
 			<div>
-							尊敬的 ${name},您好！
+							尊敬的<span style="color:red">${name}</span> ,您好！
 							<a href="ShowHome">返回首页</a>
 							
 						</div>
@@ -62,7 +60,16 @@
 										<tr>
 											<th><input type="checkbox" class="all" />全选 <button type="submit" class="btn btn-warning" name="delbtn">删除所选</button></th>
 											<th>标题</th>
-											<th>所属类别</th>
+											<th>所属类别<select id="types">
+																<option value="0" selected="selected">显示全部</option>
+																<option value="政策法规">政策法规</option>
+																<option value="新闻中心">新闻中心</option>
+																<option value="办事指南">办事指南</option>
+																<option value="事业单位招聘">事业单位招聘</option>
+																<option value="职称资格考试">职称资格考试</option>
+																<option value="常见问题">常见问题</option>
+																<option value="举报投诉">举报投诉</option>
+															</select></th>
 											<th>发布人</th>
 											<th>发布时间</th>
 											<th>发布内容</th>
@@ -73,7 +80,7 @@
 											<tr>
 												<td><input type="checkbox" name="pid" value="${tr.pid}" /></td>
 												<td>${tr.pubTitle }</td>
-												<td>${tr.pubType }</td>
+												<td class="ptype">${tr.pubType }</td>
 												<td>${tr.pubUser }</td>
 												<td>${tr.pubTime }</td>
 												<td>${tr.pubContent }</td>
@@ -565,11 +572,29 @@
 				items[Id].style.display="block";
 			//}
 		//}
+				
+		
+		
 	}
 		
-		$('.mydatepicker2').dcalendarpicker({
-			format : 'yyyy-mm-dd'
-		});
+	$("#types").change(
+			function() {					
+				var types = $("#types").val();
+				$(".ptype").each(function() {
+					var pt = $(this).get(0);
+					ptype = $(pt).html();
+					if(types==0){
+						$(".ptype").parents('tr').show();
+					}
+					if(ptype==types) {
+					$(this).parent('tr').show();
+				}else {
+					$(this).parent('tr').hide();
+				}
+					})
+				
+			})
+	
 
 		
 		
@@ -588,6 +613,8 @@
 								})
 					}
 				});
+		
+		
 	</script>
 </body>
 

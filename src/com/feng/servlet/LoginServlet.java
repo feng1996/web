@@ -19,12 +19,12 @@ public class LoginServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		String[] isSaveArr = req.getParameterValues("isSave");
-		if(isSaveArr == null) {
-			System.out.println("null");
-		} else {
-			System.out.println("not null");
-		}
+//		String[] isSaveArr = req.getParameterValues("isSave");
+//		if(isSaveArr == null) {
+//			System.out.println("null");
+//		} else {
+//			System.out.println("not null");
+//		}
 		String message = (String)req.getAttribute("message");
 //		if(message != null && message.equals("noPrimse")) {
 //			req.setAttribute("message", "请登录");
@@ -46,12 +46,12 @@ public class LoginServlet extends HttpServlet {
 			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		} else {// 登录成功
 			// 添加cookie
-			if(isSaveArr != null) {
-				System.out.println("yes");
-				Cookie userNameCookie = new Cookie("saveName",userName);
-				userNameCookie.setMaxAge(30*60);
-				resp.addCookie(userNameCookie);
-			}
+//			if(isSaveArr != null) {
+//				System.out.println("yes");
+//				Cookie userNameCookie = new Cookie("saveName",userName);
+//				userNameCookie.setMaxAge(30*60);
+//				resp.addCookie(userNameCookie);
+//			}
 			HttpSession session = req.getSession();
 			session.setAttribute("name", userName);
 			req.getRequestDispatcher("DoPub").forward(req, resp);
