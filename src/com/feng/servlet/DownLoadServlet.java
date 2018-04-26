@@ -1,9 +1,7 @@
 package com.feng.servlet;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 
@@ -11,8 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.feng.dao.impl.FileDaoImpl;
 
 @SuppressWarnings("serial")
@@ -41,7 +37,7 @@ public class DownLoadServlet extends HttpServlet {
 		fileDaoImpl.updateDownloadByFid(fid);
 		System.out.println("fid:" + fid);
 		System.out.println("url:" + url);
-		File file = new File(url);
+		//File file = new File(url);
 //		if(!file.exists()) {
 //			req.setAttribute("message", "资源已被删除");
 //			req.getRequestDispatcher("/message.jsp").forward(req, resp);

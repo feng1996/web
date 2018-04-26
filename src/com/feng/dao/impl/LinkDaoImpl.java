@@ -6,10 +6,8 @@ import java.util.Vector;
 
 import com.feng.dao.BaseDao;
 import com.feng.dao.LinkDao;
-import com.feng.dao.PubDao;
 import com.feng.dao.RSProcessor;
 import com.feng.entity.Link;
-import com.feng.entity.PubManage;
 
 public class LinkDaoImpl extends BaseDao implements LinkDao {
 
@@ -55,7 +53,7 @@ public class LinkDaoImpl extends BaseDao implements LinkDao {
 	
 	@Override
 	public Vector<Link> getLink() {
-		String sql = "select * from link";
+		String sql = "select * from link order by lid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {

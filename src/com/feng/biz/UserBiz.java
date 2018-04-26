@@ -2,7 +2,6 @@ package com.feng.biz;
 
 import java.util.List;
 
-import com.feng.entity.PubManage;
 import com.feng.entity.User;
 
 public interface UserBiz {

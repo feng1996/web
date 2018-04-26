@@ -3,7 +3,6 @@ package com.feng.dao;
 import java.util.Vector;
 
 import com.feng.entity.Link;
-import com.feng.entity.Member;
 
 public interface LinkDao {
 

@@ -2,16 +2,11 @@ package com.feng.biz.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Vector;
-
 import com.feng.biz.FileBiz;
-import com.feng.dao.FileDao;
 import com.feng.dao.impl.FileDaoImpl;
 import com.feng.entity.FileManage;
 import com.feng.entity.Page;
-import com.feng.entity.PubManage;
 
 public class FileBizImpl implements FileBiz {
 

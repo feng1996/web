@@ -55,7 +55,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getPub() {
-		String sql = "select * from pub";
+		String sql = "select * from pub order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -79,7 +79,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getPolicyPub() {
-		String sql = "select * from pub where pubType = '政策法规'";
+		String sql = "select * from pub where pubType = '政策法规' order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -103,7 +103,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getNewsPub() {
-		String sql = "select * from pub where pubType = '新闻中心'";
+		String sql = "select * from pub where pubType = '新闻中心' order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -127,7 +127,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getBsznPub() {
-		String sql = "select * from pub where pubType = '办事指南'";
+		String sql = "select * from pub where pubType = '办事指南' order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -151,7 +151,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getSydwzpPub() {
-		String sql = "select * from pub where pubType = '事业单位招聘'";
+		String sql = "select * from pub where pubType = '事业单位招聘' order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -175,7 +175,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getZczgksPub() {
-		String sql = "select * from pub where pubType = '职称资格考试'";
+		String sql = "select * from pub where pubType = '职称资格考试' order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -199,7 +199,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getCjwtPub() {
-		String sql = "select * from pub where pubType = '常见问题'";
+		String sql = "select * from pub where pubType = '常见问题' order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -223,7 +223,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getJbtsPub() {
-		String sql = "select * from pub where pubType = '举报投诉'";
+		String sql = "select * from pub where pubType = '举报投诉' order by pid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -247,7 +247,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getPolicyPubLimit() {
-		String sql = "select * from pub where pubType = '政策法规' limit 8";
+		String sql = "select * from pub where pubType = '政策法规' order by pid desc limit 8";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -271,7 +271,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getNewsPubLimit() {
-		String sql = "select * from pub where pubType = '新闻中心' limit 8";
+		String sql = "select * from pub where pubType = '新闻中心' order by pid desc limit 8";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -295,7 +295,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getSydwzpPubLimit() {
-		String sql = "select * from pub where pubType = '事业单位招聘' limit 8";
+		String sql = "select * from pub where pubType = '事业单位招聘' order by pid desc limit 8";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -319,7 +319,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getZczgksPubLimit() {
-		String sql = "select * from pub where pubType = '职称资格考试' limit 8";
+		String sql = "select * from pub where pubType = '职称资格考试' order by pid desc limit 8";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -343,7 +343,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	
 	@Override
 	public Vector<PubManage> getBsznsPubLimit() {
-		String sql = "select * from pub where pubType = '办事指南' limit 8";
+		String sql = "select * from pub where pubType = '办事指南' order by pid desc limit 8";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -385,7 +385,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	@Override
     public List<PubManage> findPolicyPubs(int page, int count){
 		
-		String sql = "select * from pub where pubType = '政策法规' LIMIT ?,?";
+		String sql = "select * from pub where pubType = '政策法规' order by pid desc LIMIT ?,?";
 		Object[] params = { (page-1)*count,count };
 		
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
@@ -413,7 +413,7 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	@Override
     public List<PubManage> findNewsPubs(int page, int count){
 		
-		String sql = "select * from pub where pubType = '新闻中心' LIMIT ?,?";
+		String sql = "select * from pub where pubType = '新闻中心' order by pid desc LIMIT ?,?";
 		Object[] params = { (page-1)*count,count };
 		
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {

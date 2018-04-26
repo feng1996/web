@@ -3,7 +3,6 @@ package com.feng.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 //		} else {
 //			System.out.println("not null");
 //		}
-		String message = (String)req.getAttribute("message");
+	//	String message = (String)req.getAttribute("message");
 //		if(message != null && message.equals("noPrimse")) {
 //			req.setAttribute("message", "请登录");
 //			req.getRequestDispatcher("Home").forward(req, resp);

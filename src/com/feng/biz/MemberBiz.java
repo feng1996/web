@@ -3,7 +3,6 @@ package com.feng.biz;
 import java.util.List;
 
 import com.feng.entity.Member;
-import com.feng.entity.PubManage;
 
 public interface MemberBiz {
 	

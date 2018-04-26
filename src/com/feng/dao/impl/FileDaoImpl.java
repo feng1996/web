@@ -9,8 +9,6 @@ import com.feng.dao.BaseDao;
 import com.feng.dao.FileDao;
 import com.feng.dao.RSProcessor;
 import com.feng.entity.FileManage;
-import com.feng.entity.Member;
-import com.feng.entity.PubManage;
 
 public class FileDaoImpl extends BaseDao implements FileDao {
 
@@ -56,7 +54,7 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 	
 	@Override
 	public Vector<FileManage> getFile() {
-		String sql = "select * from file";
+		String sql = "select * from file order by fid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -79,7 +77,7 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 	
 	@Override
 	public Vector<FileManage> getFileLimit() {
-		String sql = "select * from file limit 8";
+		String sql = "select * from file order by fid desc limit 8";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {
@@ -112,7 +110,7 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 	@Override
     public List<FileManage> findFiles(int page, int count){
 		
-		String sql = "select * from file LIMIT ?,?";
+		String sql = "select * from file order by fid desc LIMIT ?,?";
 		Object[] params = { (page-1)*count,count };
 		
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {

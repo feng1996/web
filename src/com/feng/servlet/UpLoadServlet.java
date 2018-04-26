@@ -19,7 +19,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.feng.dao.impl.FileDaoImpl;
-import com.feng.entity.CurrentTime;
 import com.feng.entity.FileManage;
 
 
@@ -117,7 +116,7 @@ public class UpLoadServlet extends HttpServlet {
 			System.out.println("文件大小："+fileSize);
 
 			
-			String updateTime = new CurrentTime().getDateString();
+			//String updateTime = new CurrentTime().getDateString();
 			FileManage fileMessage = new FileManage(fileName, savePath,0, userName);
 			
 			FileDaoImpl fileDaoImpl = new FileDaoImpl();

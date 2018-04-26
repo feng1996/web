@@ -7,7 +7,6 @@ import java.util.Vector;
 import com.feng.dao.BaseDao;
 import com.feng.dao.RSProcessor;
 import com.feng.dao.UserDao;
-import com.feng.entity.PubManage;
 import com.feng.entity.User;
 
 public class UserDaoImpl extends BaseDao implements UserDao {

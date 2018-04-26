@@ -58,7 +58,7 @@ public class MemberDaoImpl extends BaseDao implements MemberDao {
 	
 	@Override
 	public Vector<Member> getMember() {
-		String sql = "select * from member";
+		String sql = "select * from member order by mid desc";
 		Object[] params = { };
 		RSProcessor getUsersByNameProcessor = new RSProcessor() {
 			public Object process(ResultSet rs) throws SQLException {

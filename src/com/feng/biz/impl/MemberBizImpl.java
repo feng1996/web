@@ -2,10 +2,7 @@ package com.feng.biz.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Vector;
-
 import com.feng.biz.MemberBiz;
 import com.feng.dao.impl.MemberDaoImpl;
 import com.feng.entity.Member;

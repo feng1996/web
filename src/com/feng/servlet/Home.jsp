@@ -307,16 +307,16 @@
 				<div class="col-md-12 column">					
 							<div class="row clearfix">
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y1.png" /></a>
-								</div>
-								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y2.png" /></a>
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
 								<div class="col-md-3 column">
 									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y4.png" /></a>
+									<a href="#"><img alt="" src="img/y3.png" /></a>
+								</div>
+								<div class="col-md-3 column">
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
 							</div>															
 				</div>
@@ -325,16 +325,16 @@
 				<div class="col-md-12 column">					
 							<div class="row clearfix">
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y4.png" /></a>
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
 								<div class="col-md-3 column">
 									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y2.png" /></a>
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y1.png" /></a>
+									<a href="#"><img alt="" src="img/y3.png" /></a>
 								</div>
 							</div>															
 				</div>

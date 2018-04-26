@@ -38,7 +38,7 @@
 			<div class="col-md-10 column">
 			<div>
 							尊敬的<span style="color:red">${name}</span> ,您好！
-							<a href="ShowHome">返回首页</a>
+							<a href="Logout">注销并返回首页</a>
 							
 						</div>
 				<div class="tab-content">

@@ -3,7 +3,6 @@ package com.feng.dao;
 import java.util.Vector;
 
 import com.feng.entity.Member;
-import com.feng.entity.PubManage;
 
 public interface MemberDao {
 

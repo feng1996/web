@@ -3,8 +3,6 @@
   <display-name>MyGraduate</display-name>
   <welcome-file-list>
   	<welcome-file>HotFile</welcome-file>
-    <welcome-file>Home.jsp</welcome-file>
-    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>InitServlet</servlet-name>
@@ -26,6 +24,14 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/DoLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.feng.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>InsertPubServlet</servlet-name>

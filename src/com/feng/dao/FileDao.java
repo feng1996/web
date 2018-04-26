@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Vector;
 
 import com.feng.entity.FileManage;
-import com.feng.entity.Member;
-import com.feng.entity.PubManage;
 
 public interface FileDao {
 
