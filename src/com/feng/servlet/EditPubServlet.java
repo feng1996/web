@@ -26,7 +26,7 @@ public class EditPubServlet extends HttpServlet {
 		PubBizImpl pubBizImpl = new PubBizImpl();
 		PubManage pub = pubBizImpl.findPubByID(pid);
 		request.setAttribute("pub", pub);
-		request.getRequestDispatcher("edit.jsp").forward(request, response);
+		request.getRequestDispatcher("editPub.jsp").forward(request, response);
 		
 	}
 

@@ -9,19 +9,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>后台管理</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
+<link href="dist/summernote.css" rel="stylesheet">
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"
 	charset="utf-8"></script>
 <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="dist/summernote.js"></script>
+<script src="dist/lang/summernote-zh-CN.js"></script>
 </head>
 
 <body>
 	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true">&times;</button>
+		
 		<h4 class="modal-title" id="myModalLabel">发布管理</h4>
 	</div>
 	<div class="modal-body">
-		<form method="post" action="UpdatePub" class="form-horizontal"
+		<form method="post" action="UpdatePub"  enctype="multipart/form-data" class="form-horizontal"
 			role="form">
 			<div class="form-group">
 
@@ -144,16 +146,30 @@
 					<textarea name="pubContent" class="form-control" rows="3">${pub.pubContent }</textarea>
 				</div>
 			</div>
-
+			<div class="form-group">
+				<label class="col-md-2 control-label">上传图片：</label>
+					<div class="col-md-10">
+						<input type="file" name="txt_file" multiple  id="uploadFile" value="${pub.imgName }" />
+					</div>
+			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger">
-					<a href="DoPub" class="text-success">取消</a>
-				</button>
+				
+				<a href="DoPub" class="text-info btn btn-danger">取消</a>
+				
 				<button type="submit" class="btn btn-success">确认</button>
 			</div>
 
 		</form>
 	</div>
+	<script type="text/javascript">
+	$(function(){
+		 $('.summernote').summernote({
+		        height: 200,
+		        tabsize: 2,
+		        lang: 'zh-CN'
+		    });
+		});
+	</script>
 </body>
 
 </html>

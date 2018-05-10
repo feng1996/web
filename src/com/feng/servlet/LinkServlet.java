@@ -28,10 +28,8 @@ public class LinkServlet extends HttpServlet {
 			Vector<Link> links = linkDaoImpl.getLink();
 			req.setAttribute("links", links);
 			req.setAttribute("link", link);
-			String Id="3";
-			HttpSession session=req.getSession();
-			session.setAttribute("Id",Id);
-			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
+	
+			req.getRequestDispatcher("DoLink.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

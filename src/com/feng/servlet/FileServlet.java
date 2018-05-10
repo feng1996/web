@@ -28,10 +28,8 @@ public class FileServlet extends HttpServlet {
 			Vector<FileManage> files = fileDaoImpl.getFile();
 			req.setAttribute("files", files);
 			req.setAttribute("file", file);
-			String Id="4";
-			HttpSession session=req.getSession();
-			session.setAttribute("Id",Id);
-			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
+		
+			req.getRequestDispatcher("DoFile.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

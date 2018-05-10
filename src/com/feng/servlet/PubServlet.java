@@ -28,10 +28,8 @@ public class PubServlet extends HttpServlet {
 			Vector<PubManage> pubs = pubDaoImpl.getPub();
 			req.setAttribute("pubs", pubs);
 			req.setAttribute("pub", pub);
-			String Id="0";
-			HttpSession session=req.getSession();
-			session.setAttribute("Id",Id);
-			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
+		
+			req.getRequestDispatcher("DoPub.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

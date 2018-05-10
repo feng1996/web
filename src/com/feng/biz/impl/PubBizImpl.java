@@ -15,8 +15,8 @@ public class PubBizImpl implements PubBiz {
 	//private PubDao pubDao = new PubDaoImpl();
 	
 	@Override
-	public int insert(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent) {
-		PubManage pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent);
+	public int insert(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent, String imgName, String imgURL) {
+		PubManage pub = new PubManage(pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 		return pubDaoImpl.insert(pub);
 	}
 	
@@ -41,8 +41,8 @@ public class PubBizImpl implements PubBiz {
 	}
 	
 	@Override
-	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent,int pid) {
-		PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+	public int update(String pubTitle, String pubType, String pubUser, String pubTime , String pubContent, String imgName, String imgURL,int pid) {
+		PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 		return pubDaoImpl.update(pub);
 	}
 	

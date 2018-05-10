@@ -119,10 +119,13 @@
 							<div class="tab-pane" id="panel-816093">
 								<ul class="ahidden">
 									<c:forEach var="news" items="${news}">
-										<li>
-											<a href="pubDetails.jsp">${news.pubTitle }</a>
-										</li>
-									</c:forEach>
+										<c:url value="PubDetails" var="pubInfo">
+										<c:param name="pid" value="${news.pid}"></c:param>											
+										</c:url>											
+												<li>													
+													<a href="${pubInfo}">${news.pubTitle }</a>
+												</li>										
+										</c:forEach>
 								</ul>
 							</div>
 							<div class="tab-pane active" id="panel-565510">
@@ -133,8 +136,8 @@
 											<c:param name="fileName" value="${me.fileName}"></c:param>
 											<c:param name="fid" value="${me.fid}"></c:param>
 										</c:url>
-										<li>${me.fileName}
-										<a href="${downurl}">下载</a></li>
+										<li>
+										<a href="${downurl}">${me.fileName}</a></li>
 									
 									</c:forEach>
 								</ul>
@@ -161,10 +164,14 @@
 					</div>
 					<ul class="ahidden">
 						<c:forEach var="policys" items="${policys}">
-							<li>
-								<a href="pubDetails.jsp">${policys.pubTitle }</a>
-							</li>
-						</c:forEach>
+										<c:url value="PubDetails" var="pubInfo">
+										<c:param name="pid" value="${policys.pid}"></c:param>											
+										</c:url>											
+												<li>													
+													<a href="${pubInfo}">${policys.pubTitle }</a>
+												</li>										
+										</c:forEach>
+					
 					</ul>
 				</div>
 				<div class="col-md-4 column">
@@ -183,10 +190,13 @@
 					</div>
 					<ul class="ahidden">
 						<c:forEach var="sydwzps" items="${sydwzps}">
-							<li>
-								<a href="pubDetails.jsp">${sydwzps.pubTitle }</a>
-							</li>
-						</c:forEach>
+										<c:url value="PubDetails" var="pubInfo">
+										<c:param name="pid" value="${sydwzps.pid}"></c:param>											
+										</c:url>											
+												<li>													
+													<a href="${pubInfo}">${sydwzps.pubTitle }</a>
+												</li>										
+										</c:forEach>						
 					</ul>
 				</div>
 				<div class="col-md-4 column">
@@ -204,11 +214,14 @@
 						</div>
 					</div>
 					<ul class="ahidden">
-						<c:forEach var="zczhkss" items="${zczhkss}">
-							<li>
-								<a href="pubDetails.jsp">${zczhkss.pubTitle }</a>
-							</li>
-						</c:forEach>
+					<c:forEach var="zczhkss" items="${zczhkss}">
+										<c:url value="PubDetails" var="pubInfo">
+										<c:param name="pid" value="${zczhkss.pid}"></c:param>											
+										</c:url>											
+												<li>													
+													<a href="${pubInfo}">${zczhkss.pubTitle }</a>
+												</li>										
+										</c:forEach>						
 					</ul>
 				</div>
 			</div>
@@ -225,7 +238,7 @@
 									<span class="glyphicon glyphicon-hand-right" style="font-size: 45px;"></span>
 								</div>
 								<div class="col-md-2 column">
-									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+									<a href="http://www.chashebao.com/info/dazhou.html" class="btn btn-info btn-lg" style="width: 100%;">
 										<span class="glyphicon glyphicon-eye-open" style="font-size: 45px;"></span>
 										<div style="font-size: 16px;text-align: center;">
 											社保查询
@@ -234,7 +247,7 @@
 
 								</div>
 								<div class="col-md-2 column">
-									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+									<a href="http://www.wangxiao.cn/sichuan/dazhou.html" class="btn btn-info btn-lg" style="width: 100%;">
 										<span class="glyphicon glyphicon-pencil" style="font-size: 45px;"></span>
 										<div style="font-size: 16px;text-align: center;">
 											考试成绩查询
@@ -242,7 +255,7 @@
 									</a>
 								</div>
 								<div class="col-md-2 column">
-									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+									<a href="http://www.dzsdaj.gov.cn/" class="btn btn-info btn-lg" style="width: 100%;">
 										<span class="glyphicon glyphicon-education" style="font-size: 45px;"></span>
 										<div style="font-size: 16px;text-align: center;">
 											高校档案查询
@@ -250,7 +263,7 @@
 									</a>
 								</div>
 								<div class="col-md-2 column">
-									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+									<a href="https://www.51test.net/jszg/sichuan/dazhou/" class="btn btn-info btn-lg" style="width: 100%;">
 										<span class="glyphicon glyphicon-book" style="font-size: 45px;"></span>
 										<div style="font-size: 16px;text-align: center;">
 											资格证书查询
@@ -258,7 +271,7 @@
 									</a>
 								</div>
 								<div class="col-md-2 column">
-									<a href="#" class="btn btn-info btn-lg" style="width: 100%;">
+									<a href="http://www.scdzyb.com/" class="btn btn-info btn-lg" style="width: 100%;">
 										<span class="glyphicon glyphicon-heart" style="font-size: 45px;"></span>
 										<div style="font-size: 16px;text-align: center;">
 											医保查询
@@ -280,22 +293,28 @@
 								</div>
 								<div class="col-md-5 column">
 									<ul class="ahidden">
-										<c:forEach var="news" items="${news}">
-										<li>
-											<span class="data-span">${news.pubTime }</span>
-											<a href="pubDetails.jsp">${news.pubTitle }</a>
-										</li>
-										</c:forEach>
+									<c:forEach var="news" items="${news}">
+										<c:url value="PubDetails" var="pubInfo">
+										<c:param name="pid" value="${news.pid}"></c:param>											
+										</c:url>											
+												<li>	
+													<span class="data-span">${news.pubTime }</span>												
+													<a href="${pubInfo}">${news.pubTitle }</a>
+												</li>										
+										</c:forEach>						
 									</ul>
 								</div>
 								<div class="col-md-5 column">
 									<ul class="ahidden">
-										<c:forEach var="bszns" items="${bszns}">
-										<li>
-											<span class="data-span">${bszns.pubTime }</span>
-											<a href="pubDetails.jsp">${bszns.pubTitle }</a>
-										</li>
-										</c:forEach>
+									<c:forEach var="bszns" items="${bszns}">
+										<c:url value="PubDetails" var="pubInfo">
+										<c:param name="pid" value="${bszns.pid}"></c:param>											
+										</c:url>											
+												<li>	
+													<span class="data-span">${bszns.pubTime }</span>												
+													<a href="${pubInfo}">${bszns.pubTitle }</a>
+												</li>										
+										</c:forEach>										
 									</ul>
 								</div>
 							</div>
@@ -307,16 +326,16 @@
 				<div class="col-md-12 column">					
 							<div class="row clearfix">
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y1.png" /></a>
+									<a href="http://www.scdzjy.gov.cn/"><img alt="" src="img/y1.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y2.png" /></a>
+									<a href="http://www.dzpta.gov.cn/"><img alt="" src="img/y2.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y3.png" /></a>
+									<a href="http://dz.sc91.org.cn/"><img alt="" src="img/y3.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y4.png" /></a>
+									<a href="http://www.scdzyb.com/"><img alt="" src="img/y4.png" /></a>
 								</div>
 							</div>															
 				</div>
@@ -325,23 +344,23 @@
 				<div class="col-md-12 column">					
 							<div class="row clearfix">
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y4.png" /></a>
+									<a href="http://0818.weizhangwang.com/"><img alt="" src="img/y5.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y3.png" /></a>
+									<a href="http://www.dzgaj.gov.cn/"><img alt="" src="img/y6.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y2.png" /></a>
+									<a href="http://www.dzxw.net/"><img alt="" src="img/y7.png" /></a>
 								</div>
 								<div class="col-md-3 column">
-									<a href="#"><img alt="" src="img/y1.png" /></a>
+									<a href="http://www.cdhrss.gov.cn/index.action"><img alt="" src="img/y8.png" /></a>
 								</div>
 							</div>															
 				</div>
 			</div>
 			
 			<footer>
-				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲
+				<p class="text-center">&copy; 2018-2035 All Rights Reserved. 
 					<a href="login.jsp">管理员登录</a>
 				</p>
 			</footer>

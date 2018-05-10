@@ -7,7 +7,7 @@
 }
 .edit-content{
 	width: 100%;
-	height: 200px;
+	height: 400px;
 	overflow: auto;
 }
 .col-md-2{
@@ -27,3 +27,19 @@
 .list-group-item a:hover{
 	color: #888888;
 }
+th{
+	text-align:center;
+}
+.pt tr{
+	display:inline-block;
+	height:38px;
+	width:100%;
+}
+.ht{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+
+

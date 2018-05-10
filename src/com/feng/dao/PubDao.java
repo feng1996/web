@@ -40,4 +40,8 @@ public interface PubDao {
     public Vector<PubManage> getPolicySearch(String sw);
     public Vector<PubManage> getNewsSearch(String sw);
     public Vector<PubManage> getHallSearch(String sw);
+    
+    public List<String> getPolicyKeyword(String keyword);
+    public List<String> getNewsKeyword(String keyword);
+    public List<String> getHallKeyword(String keyword);
 }

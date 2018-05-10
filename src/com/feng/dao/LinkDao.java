@@ -1,5 +1,6 @@
 package com.feng.dao;
 
+import java.util.List;
 import java.util.Vector;
 
 import com.feng.entity.Link;
@@ -17,4 +18,5 @@ public interface LinkDao {
 	public int delLinkByLid(int lid);
 	
 	public Vector<Link> getLinkSearch(String sw);
+	public List<String> getLinkKeyword(String keyword);
 }

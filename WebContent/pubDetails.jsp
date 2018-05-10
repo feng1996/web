@@ -70,18 +70,18 @@
 	<h1>${pub.pubTitle}</h1>
 	<div class="date">来源：达州市人力资源和社会保障局 &nbsp; 时间：${pub.pubTime} &nbsp; 
 </div>
-	<div class="content">
+	<pre class="content">
 
-	<span style="font-size:18px;"><span style="font-family:arial,helvetica,sans-serif;">${pub.pubContent}</span></span><br />
-</div>
+	<span style="font-size:18px;"><span style="font-family:arial,helvetica,sans-serif;white-space:pre-wrap;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${pub.pubContent}</span></span><br />
+</pre>
+<div><img alt="${pub.imgURL}" src="${pub.imgURL}"></div>
 </div>
 <div class="h10"></div>
 </div>
 <footer>
-				<p class="text-center">
-					&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲
+				<p class="text-center">&copy; 2018-2035 All Rights Reserved. 
 					<a href="login.jsp">管理员登录</a>
 				</p>
-			</footer>	
+			</footer>
 </body>
 </html>

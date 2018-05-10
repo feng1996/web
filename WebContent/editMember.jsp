@@ -13,8 +13,7 @@
 	</head>
 
 	<body>
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<div class="modal-header">			
 			<h4 class="modal-title" id="myModalLabel">会员单位</h4>
 		</div>
 		<div class="modal-body">
@@ -151,7 +150,7 @@
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+					<a href="DoMember" class="text-info btn btn-danger">取消</a>
 					<button type="submit" class="btn btn-success" name="insbtn">提交</button>
 				</div>
 

@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>MyGraduate</display-name>
   <welcome-file-list>
-  	<welcome-file>HotFile</welcome-file>
+    <welcome-file>HotFile</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>InitServlet</servlet-name>
@@ -217,7 +217,7 @@
     <servlet-name>ShowServiceServlet</servlet-name>
     <url-pattern>/ShowService</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>ShowDownloadServlet</servlet-name>
     <servlet-class>com.feng.servlet.ShowDownloadServlet</servlet-class>
   </servlet>
@@ -241,7 +241,7 @@
     <servlet-name>DeleteFileServlet</servlet-name>
     <url-pattern>/DeleteFile</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>DownLoadServlet</servlet-name>
     <servlet-class>com.feng.servlet.DownLoadServlet</servlet-class>
   </servlet>
@@ -266,12 +266,28 @@
     <url-pattern>/PolicySearch</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>PolicyKeySearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.PolicyKeySearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PolicyKeySearchServlet</servlet-name>
+    <url-pattern>/PolicyKeySearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>NewsSearchServlet</servlet-name>
     <servlet-class>com.feng.servlet.NewsSearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>NewsSearchServlet</servlet-name>
     <url-pattern>/NewsSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>NewsKeySearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.NewsKeySearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsKeySearchServlet</servlet-name>
+    <url-pattern>/NewsKeySearch</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>HallSearchServlet</servlet-name>
@@ -282,12 +298,28 @@
     <url-pattern>/HallSearch</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>HallKeySearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.HallKeySearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HallKeySearchServlet</servlet-name>
+    <url-pattern>/HallKeySearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>MemberSearchServlet</servlet-name>
     <servlet-class>com.feng.servlet.MemberSearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MemberSearchServlet</servlet-name>
     <url-pattern>/MemberSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MemberKeySearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.MemberKeySearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberKeySearchServlet</servlet-name>
+    <url-pattern>/MemberKeySearch</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>LinkSearchServlet</servlet-name>
@@ -297,13 +329,29 @@
     <servlet-name>LinkSearchServlet</servlet-name>
     <url-pattern>/LinkSearch</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
+    <servlet-name>LinkKeySearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.LinkKeySearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LinkKeySearchServlet</servlet-name>
+    <url-pattern>/LinkKeySearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>FileSearchServlet</servlet-name>
     <servlet-class>com.feng.servlet.FileSearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FileSearchServlet</servlet-name>
     <url-pattern>/FileSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FileKeySearchServlet</servlet-name>
+    <servlet-class>com.feng.servlet.FileKeySearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileKeySearchServlet</servlet-name>
+    <url-pattern>/FileKeySearch</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ShowHomeServlet</servlet-name>
@@ -313,7 +361,7 @@
     <servlet-name>ShowHomeServlet</servlet-name>
     <url-pattern>/ShowHome</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>HotFileServlet</servlet-name>
     <servlet-class>com.feng.servlet.HotFileServlet</servlet-class>
   </servlet>

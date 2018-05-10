@@ -2,6 +2,7 @@ package com.feng.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -176,6 +177,29 @@ public class FileDaoImpl extends BaseDao implements FileDao {
 		};
 
 		return (Vector<FileManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
+	@Override
+	public List<String> getFileKeyword(String keyword) {
+		String sql = "select * from file where fileName like ?";
+		Object[] params = {'%'+keyword+'%' };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				List<String> datas = new ArrayList<String>();
+				while (rs.next()) {	
+					int fid = rs.getInt("fid");
+					String fileName = rs.getString("fileName");
+					String path = rs.getString("path");
+					int downNum = rs.getInt("downNum");
+					String userName = rs.getString("userName");
+					FileManage file = new FileManage(fid,fileName,path,downNum,userName);
+					datas.add(file.getFileName());
+				}
+				return datas;
+			}
+		};
+
+		return (List<String>) this.executeQuery(getUsersByNameProcessor, sql, params);
 	}
 	
 	@Override

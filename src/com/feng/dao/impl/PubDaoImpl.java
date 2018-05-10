@@ -2,6 +2,7 @@ package com.feng.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -17,8 +18,8 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	@Override
 	public int insert(PubManage pub) {
 		System.out.println("insert");
-		String sql = "insert pub (pubTitle,pubType,pubUser,pubTime,pubContent) values(?,?,?,?,?)";
-		Object[] params = { pub.getPubTitle(), pub.getPubType(), pub.getPubUser(),pub.getPubTime(), pub.getPubContent() };
+		String sql = "insert pub (pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL) values(?,?,?,?,?,?,?)";
+		Object[] params = { pub.getPubTitle(), pub.getPubType(), pub.getPubUser(),pub.getPubTime(), pub.getPubContent(),pub.getImgName(),pub.getImgURL() };
 		return this.executeUpdate(sql, params);
 	}
 
@@ -41,7 +42,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 						String pubUser = rs.getString("pubUser");
 						String pubTime = rs.getString("pubTime");
 						String pubContent = rs.getString("pubContent");
-						pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+						String imgName = rs.getString("imgName");
+						String imgURL = rs.getString("imgURL");
+						pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					}
 				}
 
@@ -67,7 +70,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -91,7 +96,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -115,7 +122,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -139,7 +148,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -163,7 +174,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -187,7 +200,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -211,7 +226,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -235,7 +252,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -259,7 +278,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -283,7 +304,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -307,7 +330,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -331,7 +356,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -355,7 +382,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -377,8 +406,8 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 	@Override
 	public int update(PubManage pub) {
 		System.out.println("update");
-		String sql = "update pub set pubTitle=?,pubType=?,pubUser=?,pubTime=?,pubContent=? where pid=?";
-		Object[] params = { pub.getPubTitle(), pub.getPubType(), pub.getPubUser(),pub.getPubTime(), pub.getPubContent(), pub.getPid() };
+		String sql = "update pub set pubTitle=?,pubType=?,pubUser=?,pubTime=?,pubContent=?,imgName=?,imgURL=? where pid=?";
+		Object[] params = { pub.getPubTitle(), pub.getPubType(), pub.getPubUser(),pub.getPubTime(), pub.getPubContent(),pub.getImgName(),pub.getImgURL(), pub.getPid() };
 		return this.executeUpdate(sql, params);
 	}
 	
@@ -398,7 +427,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -426,7 +457,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -472,7 +505,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -496,7 +531,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -520,7 +557,9 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 					String pubUser = rs.getString("pubUser");
 					String pubTime = rs.getString("pubTime");
 					String pubContent = rs.getString("pubContent");
-					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent);
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
 					pubs.add(pub);
 				}
 				return pubs;
@@ -528,5 +567,84 @@ public class PubDaoImpl extends BaseDao implements PubDao {
 		};
 
 		return (Vector<PubManage>) this.executeQuery(getUsersByNameProcessor, sql, params);
+    }
+    
+    
+    @Override
+    public List<String> getPolicyKeyword(String keyword){
+    	String sql = "select * from pub where pubType = '政策法规' and pubTitle like ?";
+		Object[] params = {'%'+keyword+'%'};
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				List<String> datas = new ArrayList<String>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
+					datas.add(pub.getPubTitle());
+				}
+				return datas;
+			}
+		};
+
+		return (List<String>) this.executeQuery(getUsersByNameProcessor, sql, params);
+    }
+    
+    @Override
+    public List<String> getNewsKeyword(String keyword){
+    	String sql = "select * from pub where pubType = '新闻中心' and pubTitle like ?";
+		Object[] params = {'%'+keyword+'%'};
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				List<String> datas = new ArrayList<String>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
+					datas.add(pub.getPubTitle());
+				}
+				return datas;
+			}
+		};
+
+		return (List<String>) this.executeQuery(getUsersByNameProcessor, sql, params);
+    }
+    
+    @Override
+    public List<String> getHallKeyword(String keyword){
+    	String sql = "select * from pub where (pubType = '办事指南' or pubType = '事业单位招聘' or pubType = '职称资格考试' or pubType = '常见问题' or pubType = '举报投诉') and pubTitle like ?";
+		Object[] params = {'%'+keyword+'%'};
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				List<String> datas = new ArrayList<String>();
+				while (rs.next()) {	
+					int pid = rs.getInt("pid");
+					String pubTitle = rs.getString("pubTitle");
+					String pubType = rs.getString("pubType");
+					String pubUser = rs.getString("pubUser");
+					String pubTime = rs.getString("pubTime");
+					String pubContent = rs.getString("pubContent");
+					String imgName = rs.getString("imgName");
+					String imgURL = rs.getString("imgURL");
+					PubManage pub = new PubManage(pid,pubTitle,pubType,pubUser,pubTime,pubContent,imgName,imgURL);
+					datas.add(pub.getPubTitle());
+				}
+				return datas;
+			}
+		};
+
+		return (List<String>) this.executeQuery(getUsersByNameProcessor, sql, params);
     }
 }

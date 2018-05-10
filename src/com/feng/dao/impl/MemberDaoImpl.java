@@ -2,6 +2,8 @@ package com.feng.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import com.feng.dao.BaseDao;
@@ -129,5 +131,34 @@ public class MemberDaoImpl extends BaseDao implements MemberDao {
 		};
 
 		return (Vector<Member>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
+	@Override
+	public List<String> getMemberKeyword(String keyword) {
+		String sql = "select * from member where memberName like ?";
+		Object[] params = {'%'+keyword+'%' };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				List<String> datas = new ArrayList<String>();
+				while (rs.next()) {	
+					int mid = rs.getInt("mid");
+					String memberName = rs.getString("memberName");
+					String memberCode = rs.getString("memberCode");
+					String memberType = rs.getString("memberType");
+					String memberAddr = rs.getString("memberAddr");
+					String memberPerson = rs.getString("memberPerson");
+					String memberID = rs.getString("memberID");
+					String memberContact = rs.getString("memberContact");
+					String memberPhone = rs.getString("memberPhone");
+					String memberIntro = rs.getString("memberIntro");
+					String memberURL = rs.getString("memberURL");
+					Member member = new Member(mid,memberName,memberCode,memberType,memberAddr,memberPerson,memberID,memberContact,memberPhone,memberIntro,memberURL);
+					datas.add(member.getMemberName());
+				}
+				return datas;
+			}
+		};
+
+		return (List<String>) this.executeQuery(getUsersByNameProcessor, sql, params);
 	}
 }

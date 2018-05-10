@@ -2,6 +2,8 @@ package com.feng.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import com.feng.dao.BaseDao;
@@ -104,6 +106,29 @@ public class LinkDaoImpl extends BaseDao implements LinkDao {
 		};
 
 		return (Vector<Link>) this.executeQuery(getUsersByNameProcessor, sql, params);
+	}
+	
+	@Override
+	public List<String> getLinkKeyword(String keyword) {
+		String sql = "select * from link where linkName like ?";
+		Object[] params = {'%'+keyword+'%' };
+		RSProcessor getUsersByNameProcessor = new RSProcessor() {
+			public Object process(ResultSet rs) throws SQLException {
+				List<String> datas = new ArrayList<String>();
+				while (rs.next()) {	
+					int lid = rs.getInt("lid");
+					String linkName = rs.getString("linkName");
+					String linkURL = rs.getString("linkURL");
+					String addTime = rs.getString("addTime");
+					String note = rs.getString("note");
+					Link link = new Link(lid,linkName,linkURL,addTime,note);
+					datas.add(link.getLinkName());
+				}
+				return datas;
+			}
+		};
+
+		return (List<String>) this.executeQuery(getUsersByNameProcessor, sql, params);
 	}
 	
 }

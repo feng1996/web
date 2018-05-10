@@ -106,7 +106,9 @@
 				</div>
 			</div>
 			<footer>
-				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲 <a href="login.jsp">管理员登录</a></p>		
+				<p class="text-center">&copy; 2018-2035 All Rights Reserved. 
+					<a href="login.jsp">管理员登录</a>
+				</p>
 			</footer>
 		</div>
 	</body>

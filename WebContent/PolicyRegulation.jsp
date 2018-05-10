@@ -11,6 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/NewPolice.css" />
+		<link rel="stylesheet" type="text/css" href="css/keysearch.css" />
+		<script src="js/Pkeysearch.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
@@ -29,14 +31,21 @@
 							<!--搜索栏-->
 							<form method="post" action="PolicySearch">
 							<div class="input-group" id="search">
-                    			<input type="text" class="form-control" name="searchWord">
+                    			<input type="text" class="form-control" name="searchWord" id="keyword"  onblur="keywordBlur()" onkeyup="getMore()" onfocus="getMore()"/>
                    				<span class="input-group-btn">
                    	    			<button class="btn btn-default" type="submit">
                         				<span class="glyphicon glyphicon-search"></span>
                        				</button>
                    			 	</span>
                 			</div> 
-                			</form>							
+                			</form>		
+                			<div id="popDiv">
+   <table id="contentTable" border="0" cellpadding="0" cellspacing="0">
+    <tbody id="content_table_body">
+   
+    </tbody>
+   </table>
+  </div>					
 						</div>
 					</div>
 					<!--导航栏-->
@@ -112,6 +121,7 @@
 
 									<!--<div align="center">-->
 									<nav class="pagenav">
+									<div>当前在第<span class="pagespan">${page.currentPage }</span> 页</div>
 									<ul class="pagination pagination-lg">
 										<c:if test="${page.currentPage>1 }">
 											<li><a href="${pageContext.request.contextPath }/ShowPolicy?page=${page.currentPage-1}">&laquo;</a></li>
@@ -167,7 +177,7 @@
 				</div>
 			</div>
 			<footer>
-				<p class="text-center">&copy; 四川师范大学 计算机科学学院 软件工程 冯嘉玲
+				<p class="text-center">&copy; 2018-2035 All Rights Reserved. 
 					<a href="login.jsp">管理员登录</a>
 				</p>
 			</footer>

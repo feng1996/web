@@ -24,6 +24,8 @@ public interface FileDao {
 	
 	public Vector<FileManage> getFileSearch(String sw);
 	
+	public List<String> getFileKeyword(String keyword);
+	
 	public int updateDownloadByFid(String fid);
 	
 	public Vector<FileManage> getHotFile();

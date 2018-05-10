@@ -29,11 +29,9 @@ public class MemberServlet extends HttpServlet {
 			req.setAttribute("members", members);
 			req.setAttribute("member", member);
 			
-			String Id="1";
-			HttpSession session=req.getSession();
-			session.setAttribute("Id",Id);
+	
 					
-			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
+			req.getRequestDispatcher("DoMember.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

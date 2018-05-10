@@ -28,10 +28,8 @@ public class UserServlet extends HttpServlet {
 			Vector<User> users = userDaoImpl.getUser();
 			req.setAttribute("users", users);
 			req.setAttribute("user", user);
-			String Id="2";
-			HttpSession session=req.getSession();
-			session.setAttribute("Id",Id);
-			req.getRequestDispatcher("Manager.jsp").forward(req, resp);
+			
+			req.getRequestDispatcher("DoUser.jsp").forward(req, resp);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

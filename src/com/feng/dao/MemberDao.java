@@ -1,5 +1,6 @@
 package com.feng.dao;
 
+import java.util.List;
 import java.util.Vector;
 
 import com.feng.entity.Member;
@@ -18,4 +19,5 @@ public interface MemberDao {
 	public int update(Member member);
 	
 	public Vector<Member> getMemberSearch(String sw);
+	public List<String> getMemberKeyword(String keyword);
 }
